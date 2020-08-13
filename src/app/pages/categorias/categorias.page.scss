@@ -1,0 +1,19 @@
+ion-chip {
+    height: 70px;
+    width: 90%;
+    background-color: white;
+}
+
+ion-chip ion-label {
+    color: #2E5394;
+}
+
+ion-content.background{
+    --background: url(../../../assets/img/back02.jpg) 0 0/100% 100% no-repeat;
+    text-align: center;
+}
+
+ion-avatar {
+    width: 60px;
+    height: 60px;
+}

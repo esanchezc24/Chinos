@@ -1,0 +1,38 @@
+ion-card-subtitle {
+    color: blue;
+    font-size: 14px;
+}
+
+ion-card-title {
+    font-size: 14px;
+}
+
+.icono {
+    width: 30px;
+}
+
+.telefono {
+    width: 20px;
+}
+
+.direccion {
+    width: 20px;
+}
+
+ion-title {
+    --color: white;
+}
+
+.avatar {
+    position: relative;
+    left: 30%;
+}
+
+ion-avatar {
+    width: 150px;
+    height: 150px;
+}
+
+ion-content.background{
+    --background: url(../../../assets/img/back01.jpg) 0 0/100% 100% no-repeat;
+}

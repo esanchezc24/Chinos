@@ -1,0 +1,44 @@
+ion-card-subtitle ion-button {
+    font-weight: bold;
+}
+
+ion-content.background{
+    --background: url(../../../assets/img/back01.jpg) 0 0/100% 100% no-repeat;
+}
+
+ion-card-header ion-label {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #96989A;
+    position: relative;
+    left: 60%;
+}
+
+.ofertas {    
+    width: 90%;
+    
+}
+
+ion-icon {
+    position: relative;
+    left: 15px;
+}
+
+ion-slides {
+    --bullet-background-active: red;
+}
+
+ion-label {
+    position: relative;
+    left: 15px;
+}
+
+.vermas {
+    text-decoration: none;
+    color: #96989A;
+    position: relative;
+    left: 34%;
+}

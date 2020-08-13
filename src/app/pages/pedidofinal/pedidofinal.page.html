@@ -1,0 +1,139 @@
+
+<app-headertituloatras tituloatras="Tu pedido"></app-headertituloatras>
+
+<ion-content>
+  <div class="ion-padding">
+    <div>
+      <ion-card>
+        <ion-item class="ion-activated">
+          <ion-icon name="location-sharp" slot="start"></ion-icon>
+          <ion-card-header class="ion-no-border">
+              <ion-card-title>DATOS DE ENTREGA</ion-card-title>
+          </ion-card-header>
+        </ion-item>
+      <ion-card-content>
+        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                  <ion-select interface="popover" placeholder="Seleccione la Zona">
+                    <ion-select-option>Zona 1</ion-select-option>
+                    <ion-select-option>Zona 2</ion-select-option>
+                  </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input required placeholder="Dirección" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input required placeholder="Referencia" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-item class="ion-activated">
+          <ion-icon name="card-sharp" slot="start"></ion-icon>
+          <ion-card-header>
+              <ion-card-title>COMPROBANTE DE PAGO</ion-card-title>
+          </ion-card-header>
+      </ion-item>
+      <ion-card-content>
+        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label>BOLETA</ion-label>
+                <ion-checkbox mode="ios"></ion-checkbox>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label>FACTURA</ion-label>
+                <ion-checkbox color="rojo" checked mode="ios"></ion-checkbox>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input required placeholder="Razón Social" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input required placeholder="RUC" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input required placeholder="Dirección" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-item class="ion-activated">
+          <ion-icon name="pricetags-sharp" slot="start"></ion-icon>
+          <ion-card-header>
+              <ion-card-title>MÉTODO DE PAGO</ion-card-title>
+          </ion-card-header>
+        </ion-item>
+        <ion-card-content>
+          <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-label>TARJETA</ion-label>
+                  <ion-checkbox color="rojo" checked mode="ios"></ion-checkbox>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-label>EFECTIVO</ion-label>
+                  <ion-checkbox mode="ios"></ion-checkbox>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-input required placeholder="Tipo de Tarjeta" type="text"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-input required placeholder="Numero de tarjeta" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-input required placeholder="Mes" type="number"></ion-input>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-input required placeholder="Año" type="number"></ion-input>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-input required placeholder="CVV" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+      <ion-label class="sub">Subtotal: s/. 42.00</ion-label><br>
+      <ion-label class="sub">I.G.V.: s/. 0.00</ion-label><br>
+      <ion-label class="total">Total: s/. 2000</ion-label>    
+    
+    <ion-grid fixed>
+      <ion-row>
+          <ion-col>
+              <ion-button expand="full" shape="round" color="amarillo">
+                  <ion-label>Finalizar Compra</ion-label>
+                </ion-button>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  </div>
+</ion-content>
