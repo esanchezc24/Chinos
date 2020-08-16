@@ -1,44 +1,31 @@
-ion-card-subtitle ion-button {
-    font-weight: bold;
+.slider{
+    background: url('src/assets/img/back01.jpg');
+    background-size: 100% auto;
 }
-
-ion-content.background{
-    --background: url(../../../assets/img/back01.jpg) 0 0/100% 100% no-repeat;
+.container{
+    background: #f7f6fb;
+    div{
+        button{
+            font-weight: bold;
+            padding: 5%;
+            border-radius: 20px;
+            font-size: 12px;
+            width: 100%;
+        }
+    }
+    .ofert, .prod{
+        margin: 0 15px;
+        div{
+            padding: 1% 5px;
+            p{
+                font-size: 11px;
+            }
+        }
+    }
+    .title{
+        font-size: 12px;
+    }
 }
-
-ion-card-header ion-label {
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-    color: #96989A;
+.slider{
     position: relative;
-    left: 60%;
-}
-
-.ofertas {    
-    width: 90%;
-    
-}
-
-ion-icon {
-    position: relative;
-    left: 15px;
-}
-
-ion-slides {
-    --bullet-background-active: red;
-}
-
-ion-label {
-    position: relative;
-    left: 15px;
-}
-
-.vermas {
-    text-decoration: none;
-    color: #96989A;
-    position: relative;
-    left: 34%;
 }

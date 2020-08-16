@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inicio',
@@ -8,13 +9,17 @@ import {  MenuController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  constructor(public menuCtrl: MenuController) { }
+  constructor(public menuCtrl: MenuController,
+              private router: Router) { }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(
+  ) {
     this.menuCtrl.enable(false);
    }
 
   ngOnInit() {
   }
-
+  login(){
+    this.router.navigate(['/tabs']);
+  }
 }

@@ -1,7 +1,26 @@
-ion-searchbar {
-    --border-radius: 25px;
+
+.search {
+  input {
+    border: 0;
+    border-radius: 25px;
+    padding: 2% 10%;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  i {
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    color: #96989A;
+    background: #FFCC29;
+    border-radius: 20px;
+    padding: 2%;
+    font-size: 12px;
+  }
 }
 
 img {
-    width: 22px;
+  width: 15px;
+
 }

@@ -4,22 +4,25 @@
   <div class="container">
     <img src="../../../assets/img/iconapp.png" class="logo">
   </div>
-  <div>
+  <div class="content">
     <ion-grid>
       <ion-row>
         <ion-col>
           <div class="ion-padding text-center">
-            <ion-label>Inicio de Sesion</ion-label>
+            <ion-label>Inicio de Sesión</ion-label>
           </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <section class="full-width">
-            <ion-button expand="block" color="rojo">
-            <ion-icon slot="start" name="logo-facebook" color="primary"></ion-icon>
+            <button class="btn background-red color-white w-100" (click)="login()">
               Continue con Facebook
-            </ion-button>
+            </button>
+<!--            <ion-button expand="block" color="rojo">-->
+<!--            <ion-icon slot="start" name="logo-facebook" color="primary"></ion-icon>-->
+<!--             -->
+<!--            </ion-button>-->
           </section>
         </ion-col>
       </ion-row>

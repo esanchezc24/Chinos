@@ -1,107 +1,121 @@
+<link rel="stylesheet" href="../../../../../../bermanlab-app/src/global.scss">
 <app-headermenu></app-headermenu>
 
 <ion-content class="background">
-    <div class="ion-padding">
-        <ion-slides mode="" pager="true">
-            <ion-slide>
-              <img src="../../../assets/img/slider.png" alt="">
-            </ion-slide>
-      
-            <ion-slide>
-              <h1>Awesome Slide Content</h1>
-            </ion-slide>
-      
-            <ion-slide>
-              <h1>Awesome Slide Content</h1>
-            </ion-slide>
-        </ion-slides>
+    <div class="slider">
+        <div class="ion-padding">
+            <ion-slides mode="" pager="true">
+                <ion-slide>
+                    <img src="assets/img/slider.png" alt="">
+                </ion-slide>
+
+                <ion-slide>
+                    <img src="assets/img/slider.png" alt="">
+                </ion-slide>
+
+                <ion-slide>
+                    <img src="assets/img/slider.png" alt="">
+                </ion-slide>
+            </ion-slides>
+        </div>
     </div>
 
-    <div>
-        <ion-icon slot="end" name="checkmark-circle-sharp" slot="icon-only" color="primary"></ion-icon> 
-        <ion-label color="azul">Ofertas</ion-label>
-        <a href="#">Ver más</a>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="4">
-              <ion-card class="ofertas">
-                <img src="../../../assets/img/photo01.jpg" alt="">
-                <ion-card-header>
-                  <ion-card-subtitle>
-                      <ion-button expand="full" color="amarillo" shape="round">
-                        S/. 80.00
-                      </ion-button>
-                  </ion-card-subtitle>
-                  <ion-label>Aretes</ion-label>
-                </ion-card-header>
-              </ion-card>
-              
-            </ion-col>
-            <ion-col size="4">
-              <ion-card class="ofertas">
-                <img src="../../../assets/img/photo02.jpg" alt="">
-                <ion-card-header>
-                  <ion-card-subtitle>
-                      <ion-button expand="full" color="amarillo" shape="round">
-                        S/. 80.00
-                      </ion-button>
-                  </ion-card-subtitle>
-                  <ion-label>Licuadora</ion-label>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-            
-            <ion-col size="4">
-              <ion-card class="ofertas">
-                <img src="../../../assets/img/photo03.jpg" alt="">
-                <ion-card-header>
-                  <ion-card-subtitle>
-                      <ion-button color="amarillo" shape="round" expand="block">
-                        S/. 80.00
-                      </ion-button>
-                  </ion-card-subtitle>
-                  <ion-label>Mochila</ion-label>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
 
-        <ion-icon slot="end" name="checkmark-circle-sharp" slot="icon-only" color="primary"></ion-icon> 
-        <ion-label color="azul">Todos los productos</ion-label>
-        <a href="#" class="vermas">Ver más</a>
-        
-          <ion-grid>
-            <ion-row>
-              <ion-col size="6">
-                <ion-card>
-                  <img src="../../../assets/img/photo04.jpg" alt="">
-                  <ion-card-header>
-                    <ion-card-subtitle>
-                        <ion-button color="amarillo" shape="round" expand="block">
-                          S/. 80.00
-                        </ion-button>
-                    </ion-card-subtitle>
-                    <ion-label>CARTELO 2020</ion-label>
-                  </ion-card-header>
-                </ion-card>
-              </ion-col>
-              <ion-col size="6">
-                <ion-card>
-                  <img src="../../../assets/img/photo05.jpg" alt="">
-                  <ion-card-header>
-                    <ion-card-subtitle>
-                        <ion-button color="amarillo" shape="round" expand="block">
-                          S/. 80.00
-                        </ion-button>
-                    </ion-card-subtitle>
-                    <ion-label>Sizes Office Stretch Spandex</ion-label>
-                  </ion-card-header>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="color-azul title">
+                    <i class="fa fa-check-circle"></i>
+                    Ofertas
+                </span>
+                <span class="color-gris ion-float-right title">Ver más</span>
+
+            </div>
+            <div class="w-100 ofert row">
+                <div class="col-md-4">
+                    <div class="background-white text-center">
+                        <div>
+                            <img src="assets/img/photo01.jpg" alt="">
+                        </div>
+                        <div>
+                            <button class="background-yellow">
+                                S/. 80.00
+                            </button>
+                            <p class="color-gris">Aretes</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="background-white text-center">
+                        <div>
+                            <img src="assets/img/photo02.jpg" alt="">
+                        </div>
+                        <div>
+                            <button class="background-yellow">
+                                S/. 80.00
+                            </button>
+                            <p class="color-gris">Aretes</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="background-white text-center">
+                        <div>
+                            <img src="assets/img/photo03.jpg" alt="">
+                        </div>
+                        <div>
+                            <button class="background-yellow">
+                                S/. 80.00
+                            </button>
+                            <p class="color-gris">Aretes</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="color-azul title">
+                    <i class="fa fa-check-circle"></i>
+                    Todos los productos
+                </span>
+                <span class="color-gris ion-float-right title">Ver más</span>
+
+            </div>
+            <div class="w-100 prod row">
+                <div class="col-md-6">
+                    <div class="background-white text-center">
+                        <div>
+                            <img src="assets/img/photo04.jpg" alt="">
+                        </div>
+                        <div>
+                            <button class="background-yellow">
+                                S/. 80.00
+                            </button>
+                            <p class="color-gris">CARTELO 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="background-white text-center">
+                        <div>
+                            <img src="assets/img/photo05.jpg" alt="">
+                        </div>
+                        <div>
+                            <button class="background-yellow">
+                                S/. 80.00
+                            </button>
+                            <p class="color-gris">CARTELO 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </ion-content>

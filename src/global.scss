@@ -24,3 +24,23 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "assets/scss/color";
+@import "assets/scss/col";
+
+div, input, img{
+  outline: 0;
+}
+
+ion-slides{
+  position: inherit !important;
+  .swiper-pagination-bullet{
+    background: #96989A ;
+  }
+  .swiper-pagination-bullet-active{
+    background: #ec3239;
+  }
+  .swiper-pagination{
+    bottom: -7px !important;
+  }
+
+}
