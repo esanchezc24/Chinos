@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-headermenu',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./headermenu.component.scss'],
 })
 export class HeadermenuComponent implements OnInit {
-
+  @Input() back: boolean;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.back);
+  }
 
 }

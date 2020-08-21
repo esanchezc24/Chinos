@@ -1,4 +1,23 @@
-
+.container{
+    font-size: 12px;
+    .row{
+        .rad{
+            width: 25px;
+            height: 25px;
+            padding: 0;
+            border-radius: 50px;
+            background: #d9dcde;
+        }
+        .price{
+            font-size: 16px;
+            color: #000;
+            font-weight: 600;
+        }
+        .btn-add{
+            border-radius: 15px;
+        }
+    }
+}
 ion-title {
     text-align: center;
     font-size: 15px;

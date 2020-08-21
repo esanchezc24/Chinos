@@ -1,10 +1,17 @@
-<link rel="stylesheet" href="../../../../../../bermanlab-app/src/global.scss">
-<app-headermenu></app-headermenu>
+
+<ion-header class="ion-no-border" translucent>
+    <ion-toolbar color="rojo">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false" menu="first"></ion-menu-button>
+        </ion-buttons>
+        <app-headermenu></app-headermenu>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content class="background">
-    <div class="slider">
+    <div class="slider slider-principal">
         <div class="ion-padding">
-            <ion-slides mode="" pager="true">
+            <ion-slides pager="true">
                 <ion-slide>
                     <img src="assets/img/slider.png" alt="">
                 </ion-slide>
@@ -32,48 +39,111 @@
 
             </div>
             <div class="w-100 ofert row">
-                <div class="col-md-4">
-                    <div class="background-white text-center">
-                        <div>
-                            <img src="assets/img/photo01.jpg" alt="">
-                        </div>
-                        <div>
-                            <button class="background-yellow">
-                                S/. 80.00
-                            </button>
-                            <p class="color-gris">Aretes</p>
-                        </div>
-                    </div>
+                <ion-slides [options]="slideOptsOne"  style=" margin: 0 15px;">
+                    <ion-slide >
+<!--                        <div class="col-md-4">-->
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo01.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">Aretes</p>
+                                </div>
+                            </div>
 
-                </div>
-                <div class="col-md-4">
-                    <div class="background-white text-center">
-                        <div>
-                            <img src="assets/img/photo02.jpg" alt="">
-                        </div>
-                        <div>
-                            <button class="background-yellow">
-                                S/. 80.00
-                            </button>
-                            <p class="color-gris">Aretes</p>
-                        </div>
-                    </div>
+<!--                        </div>-->
+                    </ion-slide>
 
-                </div>
-                <div class="col-md-4">
-                    <div class="background-white text-center">
-                        <div>
-                            <img src="assets/img/photo03.jpg" alt="">
-                        </div>
-                        <div>
-                            <button class="background-yellow">
-                                S/. 80.00
-                            </button>
-                            <p class="color-gris">Aretes</p>
-                        </div>
-                    </div>
+                    <ion-slide >
+<!--                        <div class="col-md-4">-->
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo02.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">Aretes</p>
+                                </div>
+                            </div>
 
-                </div>
+<!--                        </div>-->
+                    </ion-slide>
+
+                    <ion-slide >
+<!--                        <div class="col-md-4">-->
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo03.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">Aretes</p>
+                                </div>
+                            </div>
+
+<!--                        </div>-->
+                    </ion-slide>
+                    <ion-slide >
+                        <!--                        <div class="col-md-4">-->
+                        <div class="background-white text-center">
+                            <div>
+                                <img src="assets/img/photo01.jpg" alt="">
+                            </div>
+                            <div>
+                                <button class="background-yellow">
+                                    S/. 80.00
+                                </button>
+                                <p class="color-gris">Aretes</p>
+                            </div>
+                        </div>
+
+                        <!--                        </div>-->
+                    </ion-slide>
+
+                    <ion-slide >
+                        <!--                        <div class="col-md-4">-->
+                        <div class="background-white text-center">
+                            <div>
+                                <img src="assets/img/photo02.jpg" alt="">
+                            </div>
+                            <div>
+                                <button class="background-yellow">
+                                    S/. 80.00
+                                </button>
+                                <p class="color-gris">Aretes</p>
+                            </div>
+                        </div>
+
+                        <!--                        </div>-->
+                    </ion-slide>
+
+                    <ion-slide >
+                        <!--                        <div class="col-md-4">-->
+                        <div class="background-white text-center">
+                            <div>
+                                <img src="assets/img/photo03.jpg" alt="">
+                            </div>
+                            <div>
+                                <button class="background-yellow">
+                                    S/. 80.00
+                                </button>
+                                <p class="color-gris">Aretes</p>
+                            </div>
+                        </div>
+
+                        <!--                        </div>-->
+                    </ion-slide>
+                </ion-slides>
+
+
+
             </div>
 
         </div>
@@ -87,32 +157,66 @@
 
             </div>
             <div class="w-100 prod row">
-                <div class="col-md-6">
-                    <div class="background-white text-center">
-                        <div>
-                            <img src="assets/img/photo04.jpg" alt="">
+                <ion-slides [options]="sliderProduct"  style=" margin: 0 15px;">
+                    <ion-slide >
+                        <div class="background-white text-center">
+                            <div>
+                                <img src="assets/img/photo04.jpg" alt="">
+                            </div>
+                            <div>
+                                <button class="background-yellow">
+                                    S/. 80.00
+                                </button>
+                                <p class="color-gris">CARTELO 2020</p>
+                            </div>
                         </div>
-                        <div>
-                            <button class="background-yellow">
-                                S/. 80.00
-                            </button>
-                            <p class="color-gris">CARTELO 2020</p>
+                    </ion-slide>
+                    <ion-slide >
+                        <div class="background-white text-center">
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo05.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">CARTELO 2020</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="background-white text-center">
-                        <div>
-                            <img src="assets/img/photo05.jpg" alt="">
+                    </ion-slide>
+                    <ion-slide >
+                        <div class="background-white text-center">
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo05.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">CARTELO 2020</p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <button class="background-yellow">
-                                S/. 80.00
-                            </button>
-                            <p class="color-gris">CARTELO 2020</p>
+                    </ion-slide>
+                    <ion-slide >
+                        <div class="background-white text-center">
+                            <div class="background-white text-center">
+                                <div>
+                                    <img src="assets/img/photo05.jpg" alt="">
+                                </div>
+                                <div>
+                                    <button class="background-yellow">
+                                        S/. 80.00
+                                    </button>
+                                    <p class="color-gris">CARTELO 2020</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </ion-slide>
+                </ion-slides>
             </div>
         </div>
 

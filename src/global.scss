@@ -31,16 +31,45 @@ div, input, img{
   outline: 0;
 }
 
-ion-slides{
-  position: inherit !important;
-  .swiper-pagination-bullet{
-    background: #96989A ;
-  }
-  .swiper-pagination-bullet-active{
-    background: #ec3239;
-  }
-  .swiper-pagination{
-    bottom: -7px !important;
+.slider-principal{
+  ion-slides{
+    position: inherit !important;
+    .swiper-pagination-bullet{
+      background: #96989A ;
+    }
+    .swiper-pagination-bullet-active{
+      background: #ec3239;
+    }
+    .swiper-pagination{
+      bottom: -7px !important;
+    }
   }
 
+}
+.mitad {
+  width: 48%;
+}
+
+.cuarta {
+  width: 31%;
+  input{
+    padding: 5% 15% !important;
+  }
+}
+.two-column{
+  display: flow-root;
+}
+ion-radio-group {
+  ion-item {
+    --border-color: transparent;
+  }
+
+  ion-radio {
+    margin-right: 10px;
+    --ion-color-base: #ED3337 !important;
+  }
+
+  .item .sc-ion-label-md-h {
+    font-size: 12px;
+  }
 }

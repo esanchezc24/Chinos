@@ -2,6 +2,7 @@
     background: url('src/assets/img/back01.jpg');
     background-size: 100% auto;
 }
+
 .container{
     background: #f7f6fb;
     div{
@@ -14,7 +15,10 @@
         }
     }
     .ofert, .prod{
-        margin: 0 15px;
+        margin: 0;
+    }
+    .ofert, .prod{
+        position: relative;
         div{
             padding: 1% 5px;
             p{
@@ -28,4 +32,8 @@
 }
 .slider{
     position: relative;
+}
+app-headermenu{
+    width: 100%;
+    display: block;
 }

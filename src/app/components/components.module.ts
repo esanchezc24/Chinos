@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderatrasComponent } from './headeratras/headeratras.component';
 import { HeadertituloComponent } from './headertitulo/headertitulo.component';
 import { HeadertituloatrasComponent } from './headertituloatras/headertituloatras.component';
-import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 
 
@@ -16,14 +15,12 @@ import { RouterModule } from '@angular/router';
     HeaderatrasComponent,
     HeadertituloComponent,
     HeadertituloatrasComponent,
-    MenuComponent
   ],
   exports: [
     HeadermenuComponent,
     HeaderatrasComponent,
     HeadertituloComponent,
     HeadertituloatrasComponent,
-    MenuComponent
   ],
   imports: [
     CommonModule,

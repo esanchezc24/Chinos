@@ -1,48 +1,55 @@
-<app-headermenu></app-headermenu>
+<ion-header class="ion-no-border" translucent>
+    <ion-toolbar color="rojo">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false" menu="first"></ion-menu-button>
+        </ion-buttons>
+        <app-headermenu></app-headermenu>
+    </ion-toolbar>
+</ion-header>
 <app-headertitulo title="Categorías"></app-headertitulo>
 
 <ion-content class="background">
-    <div class="ion-padding">
-        <ion-chip class="ion-margin-start">
+    <div class="ion-padding pt-0">
+        <ion-chip class="ion-margin-start" routerLink="/tabs/subcategorias">
             <ion-avatar>
-              <img src="../../../assets/img/icon08.png">
-            </ion-avatar>
-            <ion-label>Accesorios para vehículos, motos y bicicletas</ion-label>
-        </ion-chip>
-
-        <ion-chip class="ion-margin-start">
-            <ion-avatar>
-              <img src="../../../assets/img/icon10.png">
+                <img src="assets/img/icon10.png">
             </ion-avatar>
             <ion-label>Accesorios para mascotas</ion-label>
         </ion-chip>
 
-        <ion-chip class="ion-margin-start">
-            <ion-avatar>
-              <img src="../../../assets/img/icon09.png">
-            </ion-avatar>
-            <ion-label>Belleza y cuidado personal</ion-label>
-        </ion-chip>
-
-        <ion-chip class="ion-margin-start">
-            <ion-avatar>
-              <img src="../../../assets/img/icon11.png">
-            </ion-avatar>
-            <ion-label>Electrónico</ion-label>
-        </ion-chip>
-
-        <ion-chip class="ion-margin-start">
-            <ion-avatar>
-              <img src="../../../assets/img/icon12.png">
-            </ion-avatar>
-            <ion-label>Consolas y Videojuegos</ion-label>
-        </ion-chip>
-
-        <ion-chip class="ion-margin-start">
-            <ion-avatar>
-              <img src="../../../assets/img/icon13.png">
-            </ion-avatar>
-            <ion-label>Cámaras y Accesorios</ion-label>
-        </ion-chip>
     </div>
+    <!--    <div class="ion-padding">-->
+    <!--        <ion-chip class="ion-margin-start">-->
+
+    <!--        </ion-chip>-->
+
+
+    <!--        <ion-chip class="ion-margin-start">-->
+    <!--            <ion-avatar>-->
+    <!--                <img src="../../../assets/img/icon09.png">-->
+    <!--            </ion-avatar>-->
+    <!--            <ion-label>Belleza y cuidado personal</ion-label>-->
+    <!--        </ion-chip>-->
+
+    <!--        <ion-chip class="ion-margin-start">-->
+    <!--            <ion-avatar>-->
+    <!--                <img src="../../../assets/img/icon11.png">-->
+    <!--            </ion-avatar>-->
+    <!--            <ion-label>Electrónico</ion-label>-->
+    <!--        </ion-chip>-->
+
+    <!--        <ion-chip class="ion-margin-start">-->
+    <!--            <ion-avatar>-->
+    <!--                <img src="../../../assets/img/icon12.png">-->
+    <!--            </ion-avatar>-->
+    <!--            <ion-label>Consolas y Videojuegos</ion-label>-->
+    <!--        </ion-chip>-->
+
+    <!--        <ion-chip class="ion-margin-start">-->
+    <!--            <ion-avatar>-->
+    <!--                <img src="../../../assets/img/icon13.png">-->
+    <!--            </ion-avatar>-->
+    <!--            <ion-label>Cámaras y Accesorios</ion-label>-->
+    <!--        </ion-chip>-->
+    <!--    </div>-->
 </ion-content>

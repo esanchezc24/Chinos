@@ -1,139 +1,148 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="rojo">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="color-white text-center">Tu pedido</ion-title>
+        <ion-buttons slot="end" style="min-width: 48px;">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
 
-<app-headertituloatras tituloatras="Tu pedido"></app-headertituloatras>
+<ion-content class="background-gris-ligth">
+    <div class="ion-padding" >
+        <div class="w-100 background-white content">
+            <div class="title">
+                <span><img src="assets/img/icon07.png"></span>
+                <span class="color-azul ml-3">DATOS DE ENTREGA</span>
+            </div>
+            <div class="mt-3 mb-2">
+                <!--        <app-control-message [control]="form.get('names')">-->
+                <input type="text" placeholder="Dirección" class="w-100">
+                <!--        </app-control-message>-->
+            </div>
+            <div class="mb-2">
+                <textarea rows="3" placeholder="Referencia" class="w-100 mb-2"></textarea>
+            </div>
 
-<ion-content>
-  <div class="ion-padding">
-    <div>
-      <ion-card>
-        <ion-item class="ion-activated">
-          <ion-icon name="location-sharp" slot="start"></ion-icon>
-          <ion-card-header class="ion-no-border">
-              <ion-card-title>DATOS DE ENTREGA</ion-card-title>
-          </ion-card-header>
-        </ion-item>
-      <ion-card-content>
-        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                  <ion-select interface="popover" placeholder="Seleccione la Zona">
-                    <ion-select-option>Zona 1</ion-select-option>
-                    <ion-select-option>Zona 2</ion-select-option>
-                  </ion-select>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-input required placeholder="Dirección" type="text"></ion-input>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-input required placeholder="Referencia" type="text"></ion-input>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-item class="ion-activated">
-          <ion-icon name="card-sharp" slot="start"></ion-icon>
-          <ion-card-header>
-              <ion-card-title>COMPROBANTE DE PAGO</ion-card-title>
-          </ion-card-header>
-      </ion-item>
-      <ion-card-content>
-        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="6">
-                <ion-label>BOLETA</ion-label>
-                <ion-checkbox mode="ios"></ion-checkbox>
-              </ion-col>
-              <ion-col size="6">
-                <ion-label>FACTURA</ion-label>
-                <ion-checkbox color="rojo" checked mode="ios"></ion-checkbox>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-input required placeholder="Razón Social" type="text"></ion-input>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-input required placeholder="RUC" type="text"></ion-input>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-input required placeholder="Dirección" type="text"></ion-input>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-item class="ion-activated">
-          <ion-icon name="pricetags-sharp" slot="start"></ion-icon>
-          <ion-card-header>
-              <ion-card-title>MÉTODO DE PAGO</ion-card-title>
-          </ion-card-header>
-        </ion-item>
-        <ion-card-content>
-          <form #formulario="ngForm" (ngSubmit)="onSubmit()">
-            <ion-grid>
-              <ion-row>
-                <ion-col size="6">
-                  <ion-label>TARJETA</ion-label>
-                  <ion-checkbox color="rojo" checked mode="ios"></ion-checkbox>
-                </ion-col>
-                <ion-col size="6">
-                  <ion-label>EFECTIVO</ion-label>
-                  <ion-checkbox mode="ios"></ion-checkbox>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-                  <ion-input required placeholder="Tipo de Tarjeta" type="text"></ion-input>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-                  <ion-input required placeholder="Numero de tarjeta" type="number"></ion-input>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col size="4">
-                  <ion-input required placeholder="Mes" type="number"></ion-input>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-input required placeholder="Año" type="number"></ion-input>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-input required placeholder="CVV" type="number"></ion-input>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </form>
-        </ion-card-content>
-      </ion-card>
+            <div class="title">
+                <span><img src="assets/img/icon04.png" class="w-20"></span>
+                <span class="color-azul ml-3">COMPROBANTE DE PAGO</span>
+            </div>
+            <div class="mb-2">
+                <ion-list class="background-white">
+                    <ion-radio-group [value]="form.value.type_voucher">
+                        <ion-item class="w-50 ion-float-left background-white">
+                            <ion-label class="color-gris">BOLETA</ion-label>
+                            <ion-radio color="secundary" slot="start" value="BOLETA"
+                                       (click)="changeVoucher($event)"></ion-radio>
+                        </ion-item>
+                        <ion-item class="w-50 ion-float-right background-white">
+                            <ion-label class="color-gris">FACTURA</ion-label>
+                            <ion-radio color="secundary" slot="start" value="FACTURA"
+                                       (click)="changeVoucher($event)"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                </ion-list>
+                <div *ngIf="form.value.type_voucher == 'BOLETA'; else factura" class="mt-5">
+                    <input [value]="form.value.names" type="text" placeholder="Datos" class="w-100 mb-2" disabled>
+                    <input [value]="form.value.dni" type="text" placeholder="Datos" class="w-100 mb-2" disabled>
+                    <input [value]="form.value.address" type="text" placeholder="Datos" class="w-100 mb-2" disabled>
+                </div>
+                <ng-template #factura>
+                    <div class="mt-5" #tarjeta>
+                        <div class="mb-2">
+<!--                            <app-control-message [control]="form.get('business_name')">-->
+                                <input  type="text" placeholder="Razón Social" class="w-100 ">
+<!--                            </app-control-message>-->
+                        </div>
+                        <div class="mb-2">
+<!--                            <app-control-message [customMessages]="{pattern: 'Sólo se permiten números'}"-->
+<!--                                                 [control]="form.get('ruc')">-->
+                                <input  type="text" placeholder="RUC" class="w-100">
+<!--                            </app-control-message>-->
+                        </div>
+                        <div class="mb-2">
+<!--                            <app-control-message [control]="form.get('business_address')">-->
+                                <input  type="text" placeholder="Dirección" class="w-100">
+<!--                            </app-control-message>-->
+                        </div>
+                    </div>
+
+                </ng-template>
+            </div>
+            <div class="title">
+                <span><img src="assets/img/pedidos02.png" class="w-20"></span>
+                <span class="color-azul ml-3">MÉTODO DE PAGO</span>
+            </div>
+            <ion-list class="background-white">
+                <ion-radio-group [value]="form.value.type_pay">
+                    <ion-item class="w-50 ion-float-left background-white">
+                        <ion-label class="color-gris">EFECTIVO</ion-label>
+                        <ion-radio color="secundary" slot="start" value="EFECTIVO"
+                                   (click)="changePago($event)"></ion-radio>
+                    </ion-item>
+                    <ion-item class="w-50 ion-float-right background-white">
+                        <ion-label class="color-gris">TARJETA</ion-label>
+                        <ion-radio color="secundary" slot="start" value="TARJETA"
+                                   (click)="changePago($event)"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-list>
+            <div *ngIf="form.value.type_pay == 'EFECTIVO'; else tarjeta" class="mt-2 mb-2">
+<!--                <app-control-message [control]="form.get('amount_pay')">-->
+                    <input type="number" placeholder="Con cuanto va a pagar" class="w-100">
+<!--                    <span class="text-danger" *ngIf="amountLesser">Monto debe ser mayor al total</span>-->
+<!--                </app-control-message>-->
+            </div>
+
+            <ng-template #tarjeta>
+                <div class="mt-5" #tarjeta >
+<!--                    <app-control-message [control]="form.get('email')">-->
+                        <input data-culqi="card[email]" id="card[email]"
+                               [value]="form.value.email"
+                               type="text" placeholder="Correo Electronico" class="w-100 mb-2">
+<!--                    </app-control-message>-->
+                </div>
+                <div>
+                    <div class="mb-2">
+<!--                        <app-control-message [control]="formCulqi.get('card')">-->
+                            <input data-culqi="card[number]" id="card[number]"
+                                   type="number" placeholder="Número de Tarjeta" class="w-100">
+<!--                        </app-control-message>-->
+                    </div>
+                    <div class="two-column">
+                        <div class="cuarta float-left  mb-2">
+<!--                            <app-control-message [control]="formCulqi.get('month')">-->
+                                <input  data-culqi="card[exp_month]" id="card[exp_month]"
+                                       type="number" placeholder="Mes" class="w-100">
+<!--                            </app-control-message>-->
+                        </div>
+                        <div class="cuarta float-left  mb-2 ml-2">
+<!--                            <app-control-message [control]="formCulqi.get('year')">-->
+                                <input  data-culqi="card[exp_year]" id="card[exp_year]"
+                                       type="number" placeholder="Año" class="w-100">
+<!--                            </app-control-message>-->
+                        </div>
+                        <div class="cuarta float-left  mb-2 ml-2">
+<!--                            <app-control-message [control]="formCulqi.get('cvv')">-->
+                                <input data-culqi="card[cvv]" id="card[cvv]"
+                                       type="number" placeholder="CVV" class="w-100">
+<!--                            </app-control-message>-->
+                        </div>
+                    </div>
+                </div>
+
+            </ng-template>
+        </div>
+        <div class="w-100 ion-text-right monto mt-3">
+            <p class="color-gris">Subtotal: s/. 42.00</p>
+            <p class="color-gris">I.G.V.: s/. 0.00</p>
+            <h5 class="color-red">Total: s/. 2000</h5>
+        </div>
+
+        <div class="col-md-12 mt-3">
+            <button class="btn background-yellow w-100 btn-add">Finalizar Compra</button>
+        </div>
     </div>
-    
-      <ion-label class="sub">Subtotal: s/. 42.00</ion-label><br>
-      <ion-label class="sub">I.G.V.: s/. 0.00</ion-label><br>
-      <ion-label class="total">Total: s/. 2000</ion-label>    
-    
-    <ion-grid fixed>
-      <ion-row>
-          <ion-col>
-              <ion-button expand="full" shape="round" color="amarillo">
-                  <ion-label>Finalizar Compra</ion-label>
-                </ion-button>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
-  </div>
 </ion-content>
