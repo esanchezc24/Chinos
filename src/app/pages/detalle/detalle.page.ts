@@ -24,6 +24,7 @@ export class DetallePage implements OnInit {
 
     ionViewWillEnter() {
         this.product = this.paramsService.getParams().product;
+        console.log(this.product);
     }
 
     ngOnInit() {

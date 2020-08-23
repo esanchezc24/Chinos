@@ -3,6 +3,8 @@ import {FactoryService} from "../../services/factory.service";
 import {LoadingController} from "@ionic/angular";
 import {LoadingService} from "../../services/loading.service";
 import {environment} from "../../../environments/environment";
+import {ParamsService} from "../../services/params.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-principal',
@@ -30,7 +32,9 @@ export class PrincipalPage implements OnInit {
     environment = environment;
     constructor(
         private http: FactoryService,
-        private loadingService: LoadingService
+        private loadingService: LoadingService,
+        private paramsService: ParamsService,
+        private router: Router
     ) {
     }
 
@@ -48,16 +52,30 @@ export class PrincipalPage implements OnInit {
             for (let i = 0; i < num; i++) {
                 this.offers.push({});
             }
+            this.offers.forEach((product, i) => {
+                this.offers[i].qty = 1;
+            });
         }).finally(() => {
             this.loadingService.closeLoading();
         });
         this.filters.offer = 'NO';
         this.http.get(this.filters).then((res: any) => {
             this.products = res.data;
+            const num = this.products.length < 2 ? 2 - this.products.length : this.products.length;
+            for (let i = 0; i < num; i++) {
+                this.products.push({});
+            }
+            this.products.forEach((product, i) => {
+                this.products[i].qty = 1;
+            });
         }).finally(() => {
             this.loadingService.closeLoading();
         });
     }
 
-
+    goDetail(product){
+        const params = this.paramsService.getParams();
+        params.product = product;
+        this.router.navigate(['/tabs/detalle']);
+    }
 }

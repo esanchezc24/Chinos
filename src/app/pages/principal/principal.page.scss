@@ -23,6 +23,7 @@
             padding: 1% 5px;
             p{
                 font-size: 11px;
+                margin: 0.5rem 0;
             }
         }
     }
@@ -36,4 +37,12 @@
 app-headermenu{
     width: 100%;
     display: block;
+}
+ion-slides{
+    ion-slide.products{
+        width: 70%!important;
+    }
+    ion-slide.offers{
+        width: 32%!important;
+    }
 }

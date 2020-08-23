@@ -1,7 +1,11 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="/tabs/subcategorias"></ion-back-button>
+        <ion-buttons slot="start" style="width: 48px;" class="text-center">
+               <div class="button-native " (click)="back()">
+                   <ion-icon
+                           name="arrow-back-outline"
+                           style="font-size: 24px;"></ion-icon>
+               </div>
         </ion-buttons>
         <ion-title class="color-white text-center">Tu pedido</ion-title>
         <ion-buttons slot="end" style="min-width: 48px;">
@@ -24,18 +28,18 @@
                    <span class="middle">
                     <p class="color-gris">{{product.name}}</p>
                     <div class="w-50 ion-float-left mt-2">
-                       <h5> S/.{{product.price.toFixed(2)}}</h5>
+                       <h5> S/.{{product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</h5>
                     </div>
                     <div class="w-50 ion-float-left mt-2 ion-text-right">
-                        <button class="btn rad" (click)="add(-1, product)">-</button>
+                        <button class="rad" (click)="add(-1, product)">-</button>
                         <span class="ml-2 mr-2">{{product.qty}}</span>
-                        <button class="btn rad" (click)="add(+1, product)">+</button>
+                        <button class="rad" (click)="add(+1, product)">+</button>
                     </div>
                 </span>
                 </div>
             </div>
             <div class="col-md-2 background-red remove ion-text-center">
-                <div class="dta">
+                <div class="dta" (click)="cartService.removeProduct(product)">
                     <span class="middle">
                         <ion-icon name="trash-sharp"></ion-icon>
                     </span>

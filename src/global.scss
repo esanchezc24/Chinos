@@ -27,8 +27,13 @@
 @import "assets/scss/color";
 @import "assets/scss/col";
 
-div, input, img{
+div, input, img, button, span{
   outline: 0;
+  &:focus {
+    box-shadow: none;
+    outline:0;
+    -webkit-box-shadow:none;
+  }
 }
 
 .slider-principal{

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController, NavController} from '@ionic/angular';
-import {Router} from "@angular/router";
-import {Client} from "../../interface/client.interface";
-import {AngularFireAuth} from "@angular/fire/auth";
-import {FactoryService} from "../../services/factory.service";
-import {Facebook, FacebookLoginResponse} from "@ionic-native/facebook/ngx";
+import {Router} from '@angular/router';
+import {Client} from '../../interface/client.interface';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {FactoryService} from '../../services/factory.service';
+import {Facebook, FacebookLoginResponse} from '@ionic-native/facebook/ngx';
 import {auth} from 'firebase';
 
 @Component({
@@ -29,8 +29,9 @@ export class InicioPage implements OnInit {
     login() {
         this.fb.login(['email']).then(res => {
             this.authFirebase(res);
-        }).catch(error => {
-            console.log('LOGIN ERROR ' + error);
+        }).catch((error) => {
+            console.log(error);
+            alert('FACEBOOK ERROR :' + error);
         });
     }
 
@@ -44,7 +45,7 @@ export class InicioPage implements OnInit {
                 this.client.email = response.user.email;
                 this.saveClient();
             }).catch(error => {
-            console.log('FIREBASE ERROR ' + JSON.stringify(error));
+            console.log('FIREBASE ERROR ' + JSON.parse(error));
         });
     }
     saveClient() {

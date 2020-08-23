@@ -1,27 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {OnlyAuthenticatedGuard} from "./guards/only-authenticated.guard";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'inicio',
-    pathMatch: 'full'
+    path: '', redirectTo: '/tabs', pathMatch: 'full'
   },
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [OnlyAuthenticatedGuard],
   },
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
-    path: 'principal',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
-  },
-  {
-    path: 'categorias',
-    loadChildren: () => import('./pages/categorias/categorias.module').then( m => m.CategoriasPageModule)
   },
   {
     path: 'perfil',

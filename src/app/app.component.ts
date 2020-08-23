@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {NavController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {AngularFireAuth} from "@angular/fire/auth";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -11,16 +13,31 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+      private platform: Platform,
+      private splashScreen: SplashScreen,
+      private statusBar: StatusBar,
+      private afAuth: AngularFireAuth,
+      public navCtrl: NavController
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    if (!environment.production){
+      this.navCtrl.navigateRoot('/tabs');
+    }else{
+      this.afAuth.authState.subscribe(status => {
+        if (status){
+          this.navCtrl.navigateRoot('/tabs');
+        }else{
+          this.navCtrl.navigateRoot('/login');
+        }
+      });
+    }
+
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(false);
+      this.statusBar.backgroundColorByHexString('#ED3337');
       this.splashScreen.hide();
     });
   }

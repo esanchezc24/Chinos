@@ -39,8 +39,8 @@
             </div>
             <div class="w-100 ofert row">
                 <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let offer of offers" style="width: 103.333px!important;">
-                        <div class="background-white text-center" *ngIf="offer.id">
+                    <ion-slide *ngFor="let offer of offers" class="offers" >
+                        <div class="background-white text-center" *ngIf="offer.id" (click)="goDetail(offer)">
                             <div>
                                 <img [src]="environment.apiUrl+'/'+offer.imagen" alt="">
                             </div>
@@ -68,10 +68,10 @@
                 <span class="color-gris ion-float-right title">Ver más</span>
 
             </div>
-            <div class="w-100 prod row">
+            <div class="w-100 prod row mb-3">
                 <ion-slides [options]="sliderProduct" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let product of products" style="width: 160px;">
-                        <div class="background-white text-center">
+                    <ion-slide *ngFor="let product of products" class="products" >
+                        <div class="background-white text-center" *ngIf="product.id" (click)="goDetail(product)">
                             <div>
                                 <img [src]="environment.apiUrl+'/'+product.imagen" alt="">
                             </div>

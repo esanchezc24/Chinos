@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
 import {CartService} from "../../services/cart.service";
 import {environment} from "../../../environments/environment";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-pedido',
@@ -10,7 +11,8 @@ import {environment} from "../../../environments/environment";
 })
 export class PedidoPage implements OnInit {
   environment = environment;
-  constructor(public cartService: CartService) { }
+  constructor(public cartService: CartService,
+              private location: Location) { }
 
   ngOnInit() {
     console.log(this.cartService.cartTotal())
@@ -20,5 +22,8 @@ export class PedidoPage implements OnInit {
     if (product.qty < 1) {
       product.qty += 1;
     }
+  }
+  back(){
+    this.location.back();
   }
 }

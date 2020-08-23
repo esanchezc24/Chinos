@@ -15,6 +15,7 @@ import {Facebook} from '@ionic-native/facebook/ngx';
 import {firebaseConfig} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import {SharedComponentsModule} from "./shared/shared-components.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -31,12 +32,13 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
         ReactiveFormsModule,
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireAuthModule,
+        SharedComponentsModule,
     ],
     providers: [
         StatusBar,
         SplashScreen,
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         Facebook,
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
 })

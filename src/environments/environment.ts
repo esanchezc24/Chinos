@@ -13,7 +13,7 @@ export const firebaseConfig = {
   projectId: 'chinoimportaciones-f62ca',
   storageBucket: 'chinoimportaciones-f62ca.appspot.com',
   messagingSenderId: '345703231086',
-  appId: '1:345703231086:web:576d7d16efa4cfd673807f'
+  appId: '1:345703231086:web:b6ace34324c1801f73807f'
 };
 /*
  * For easier debugging in development mode, you can import the following file
