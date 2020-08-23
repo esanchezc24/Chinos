@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CartService} from "../../services/cart.service";
+import {FactoryService} from "../../services/factory.service";
 
 @Component({
   selector: 'app-pedidofinal',
@@ -9,25 +11,46 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class PedidofinalPage implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  zones = [];
+  zone;
+  total = 0;
+  subtotal = 0;
+  constructor(private fb: FormBuilder,
+              private cartService: CartService,
+              private http: FactoryService) { }
 
 
 
   ngOnInit() {
     this.iniForm();
-    console.log(this.form);
+    this.initialLoad();
+    this.subtotal = this.cartService.cartTotal();
+    this.total = this.subtotal;
   }
   iniForm() {
-    this.form = this.fb.group({});
-    this.form.addControl('type_voucher',
-        new FormControl('BOLETA', [Validators.required]));
-    this.form.addControl('date_shows', new FormControl(null, [Validators.required]));
-    this.form.addControl('time_shows', new FormControl(null, [Validators.required]));
-    this.form.addControl('type_pay',
-        new FormControl('EFECTIVO', [Validators.required]));
-    this.form.addControl('amount_pay',
-        new FormControl(null));
+    this.form = this.fb.group({
+      type_voucher: ['BOLETA', [Validators.required]],
+      type_pay: ['type_pay', [Validators.required]],
+      amount_pay: [null, [Validators.required]],
+      zone_id: [null, [Validators.required]],
+    });
 
+  }
+  private initialLoad() {
+    this.http.setModule('zones');
+    // this.loadingService.presentLoading();
+    this.http.setModule('zones');
+    this.http.get().then((res: any) => {
+      this.zones = res.data;
+
+    }).finally(() => {
+      // this.loadingService.closeLoading();
+    });
+  }
+  changeZona(e){
+    this.zone = this.zones.find(k => k.id === e.target.value);
+    this.form.get('zone_id').setValue(this.zone.id);
+    this.total = this.subtotal + this.zone.price;
   }
   changeVoucher(event) {
     this.form.get('type_voucher').setValue(event.target.value);

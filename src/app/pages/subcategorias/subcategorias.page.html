@@ -1,58 +1,27 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/"></ion-back-button>
+            <ion-back-button defaultHref="/tabs/categorias"></ion-back-button>
         </ion-buttons>
         <app-headermenu></app-headermenu>
     </ion-toolbar>
 </ion-header>
-<app-headertitulo title="Accesorios"></app-headertitulo>
+<app-headertitulo *ngIf="category" title="{{category.name}}"></app-headertitulo>
 
 <ion-content class="background-gris-ligth">
     <div class="container ion-padding">
         <div class="row">
             <div class="w-100 product row">
-                <div class="col-md-6">
+                <div class="col-md-6" *ngFor="let product of products">
                     <div class="background-white text-center">
-                        <div class="" routerLink="/tabs/detalle">
+                        <div class="" (click)="goDetail(product)">
                             <img src="assets/img/photo05.jpg" alt="">
                         </div>
                         <div class="content text-center">
-                            <p> S/. 80.00</p>
-                            <p>S/M/L Sizes office Strech</p>
+                            <p> S/. {{product.price.toFixed(2)}}</p>
+                            <p>{{product.name}}</p>
                             <div class="buttons">
-                                <button class="btn rad">
-                                    -
-                                </button>
-                                <span class="ml-1 mr-1">1</span>
-                                <button class="btn rad">
-                                    +
-                                </button>
-                                <button class="btn background-yellow ml-1 btn-add">
-                                    Agregar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6" >
-                    <div class="background-white text-center">
-                        <div class="">
-                            <img src="assets/img/photo05.jpg" alt="">
-                        </div>
-                        <div class="content text-center">
-                            <p> S/. 80.00</p>
-                            <p>S/M/L Sizes office Strech</p>
-                            <div class="buttons">
-                                <button class="btn rad">
-                                    -
-                                </button>
-                                <span class="ml-1 mr-1">1</span>
-                                <button class="btn rad">
-                                    +
-                                </button>
-                                <button class="btn background-yellow ml-1 btn-add" >
+                                <button class="btn background-yellow w-100 btn-add" (click)="goDetail(product)">
                                     Agregar
                                 </button>
                             </div>

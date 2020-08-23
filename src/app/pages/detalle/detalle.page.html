@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/"></ion-back-button>
+            <ion-back-button defaultHref="/tabs/subcategorias"></ion-back-button>
         </ion-buttons>
         <app-headermenu></app-headermenu>
     </ion-toolbar>
@@ -9,38 +9,30 @@
 <app-headertitulo title="CARTELO 2020"></app-headertitulo>
 
 <ion-content class="background-gris-ligth">
-    <div class="container">
+    <div class="container" *ngIf="product">
         <div class="row">
             <ion-slides pager="true">
-                <ion-slide>
-                    <img src="../../../assets/img/vistaprevia.jpg" alt="">
-                </ion-slide>
-
-                <ion-slide>
-                    <h1>Awesome Slide Content</h1>
-                </ion-slide>
-
-                <ion-slide>
-                    <h1>Awesome Slide Content</h1>
+                <ion-slide *ngFor="let galery of product.galeries">
+                    <img [src]="environment.apiUrl+'/'+galery.imagen" alt="">
                 </ion-slide>
             </ion-slides>
         </div>
         <div class="row">
-            <div class="ion-padding color-gris">
-                <p>CARTELO 2020 New Casual Shoes Men Leather Flat Shoes Lace-up</p>
-                <p class="price">S/. 80.00</p>
+            <div class="ion-padding color-gris w-100">
+                <p>{{product.name}}</p>
+                <p class="price">S/. {{product.price.toFixed(2)}}</p>
             </div>
             <div class="col-md-7">
                 <span class="mr-2">Cantidad</span>
-                <button class="btn rad">-</button>
-                <span class="ml-2 mr-2">1</span>
-                <button class="btn rad">+</button>
+                <button class="btn rad" (click)="add(-1)">-</button>
+                <span class="ml-2 mr-2">{{product.qty}}</span>
+                <button class="btn rad" (click)="add(+1)">+</button>
             </div>
             <div class="col-md-5">
-            <span>Stock: 2</span>
+            <span>Stock: {{product.stock}}</span>
             </div>
             <div class="col-md-12 mt-3">
-                <button class="btn background-yellow w-100 btn-add" routerLink="/tabs/pedido">Agregar</button>
+                <button class="btn background-yellow w-100 btn-add" (click)="addCart()">Agregar</button>
             </div>
         </div>
     </div>

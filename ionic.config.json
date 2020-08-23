@@ -1,5 +1,7 @@
 {
   "name": "Chinos",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

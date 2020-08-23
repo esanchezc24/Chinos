@@ -1,4 +1,3 @@
-
 <ion-header class="ion-no-border" translucent>
     <ion-toolbar color="rojo">
         <ion-buttons slot="start">
@@ -39,109 +38,22 @@
 
             </div>
             <div class="w-100 ofert row">
-                <ion-slides [options]="slideOptsOne"  style=" margin: 0 15px;">
-                    <ion-slide >
-<!--                        <div class="col-md-4">-->
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo01.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">Aretes</p>
-                                </div>
-                            </div>
-
-<!--                        </div>-->
-                    </ion-slide>
-
-                    <ion-slide >
-<!--                        <div class="col-md-4">-->
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo02.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">Aretes</p>
-                                </div>
-                            </div>
-
-<!--                        </div>-->
-                    </ion-slide>
-
-                    <ion-slide >
-<!--                        <div class="col-md-4">-->
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo03.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">Aretes</p>
-                                </div>
-                            </div>
-
-<!--                        </div>-->
-                    </ion-slide>
-                    <ion-slide >
-                        <!--                        <div class="col-md-4">-->
-                        <div class="background-white text-center">
+                <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;">
+                    <ion-slide *ngFor="let offer of offers" style="width: 103.333px!important;">
+                        <div class="background-white text-center" *ngIf="offer.id">
                             <div>
-                                <img src="assets/img/photo01.jpg" alt="">
+                                <img [src]="environment.apiUrl+'/'+offer.imagen" alt="">
                             </div>
                             <div>
                                 <button class="background-yellow">
-                                    S/. 80.00
+                                    S/. {{offer.offer_price.toFixed(2)}}
                                 </button>
-                                <p class="color-gris">Aretes</p>
+                                <p class="color-gris">{{offer.name}}</p>
                             </div>
                         </div>
-
-                        <!--                        </div>-->
                     </ion-slide>
 
-                    <ion-slide >
-                        <!--                        <div class="col-md-4">-->
-                        <div class="background-white text-center">
-                            <div>
-                                <img src="assets/img/photo02.jpg" alt="">
-                            </div>
-                            <div>
-                                <button class="background-yellow">
-                                    S/. 80.00
-                                </button>
-                                <p class="color-gris">Aretes</p>
-                            </div>
-                        </div>
-
-                        <!--                        </div>-->
-                    </ion-slide>
-
-                    <ion-slide >
-                        <!--                        <div class="col-md-4">-->
-                        <div class="background-white text-center">
-                            <div>
-                                <img src="assets/img/photo03.jpg" alt="">
-                            </div>
-                            <div>
-                                <button class="background-yellow">
-                                    S/. 80.00
-                                </button>
-                                <p class="color-gris">Aretes</p>
-                            </div>
-                        </div>
-
-                        <!--                        </div>-->
-                    </ion-slide>
                 </ion-slides>
-
 
 
             </div>
@@ -157,65 +69,22 @@
 
             </div>
             <div class="w-100 prod row">
-                <ion-slides [options]="sliderProduct"  style=" margin: 0 15px;">
-                    <ion-slide >
+                <ion-slides [options]="sliderProduct" style=" margin: 0 15px;">
+                    <ion-slide *ngFor="let product of products" style="width: 160px;">
                         <div class="background-white text-center">
                             <div>
-                                <img src="assets/img/photo04.jpg" alt="">
+                                <img [src]="environment.apiUrl+'/'+product.imagen" alt="">
                             </div>
                             <div>
                                 <button class="background-yellow">
-                                    S/. 80.00
+                                    S/. {{product.price.toFixed(2)}}
                                 </button>
-                                <p class="color-gris">CARTELO 2020</p>
+                                <p class="color-gris">{{product.name}}</p>
                             </div>
                         </div>
                     </ion-slide>
-                    <ion-slide >
-                        <div class="background-white text-center">
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo05.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">CARTELO 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </ion-slide>
-                    <ion-slide >
-                        <div class="background-white text-center">
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo05.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">CARTELO 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </ion-slide>
-                    <ion-slide >
-                        <div class="background-white text-center">
-                            <div class="background-white text-center">
-                                <div>
-                                    <img src="assets/img/photo05.jpg" alt="">
-                                </div>
-                                <div>
-                                    <button class="background-yellow">
-                                        S/. 80.00
-                                    </button>
-                                    <p class="color-gris">CARTELO 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </ion-slide>
+
+
                 </ion-slides>
             </div>
         </div>

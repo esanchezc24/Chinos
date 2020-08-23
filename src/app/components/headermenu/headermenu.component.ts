@@ -10,7 +10,6 @@ export class HeadermenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.back);
   }
 
 }

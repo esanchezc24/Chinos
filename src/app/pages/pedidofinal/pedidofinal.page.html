@@ -16,7 +16,23 @@
                 <span><img src="assets/img/icon07.png"></span>
                 <span class="color-azul ml-3">DATOS DE ENTREGA</span>
             </div>
+
             <div class="mt-3 mb-2">
+                <ion-item class="w-100" *ngIf="zones.length > 0">
+                    <ion-label>Zonas</ion-label>
+                    <ion-select placeholder="Seleccionar la Zona"
+                                (ionChange)="changeZona($event)"
+                                okText="Aceptar" cancelText="Cancelar">
+                        <ion-select-option
+                                *ngFor="let zone of zones"
+                                [value]="zone.id">
+                            {{zone.zone}}
+                        </ion-select-option>
+                    </ion-select>
+
+                </ion-item>
+            </div>
+            <div class="mb-2">
                 <!--        <app-control-message [control]="form.get('names')">-->
                 <input type="text" placeholder="Dirección" class="w-100">
                 <!--        </app-control-message>-->
@@ -136,9 +152,9 @@
             </ng-template>
         </div>
         <div class="w-100 ion-text-right monto mt-3">
-            <p class="color-gris">Subtotal: s/. 42.00</p>
-            <p class="color-gris">I.G.V.: s/. 0.00</p>
-            <h5 class="color-red">Total: s/. 2000</h5>
+            <p class="color-gris">Subtotal: s/. {{subtotal.toFixed(2)}}</p>
+            <p class="color-gris">Envio: s/. {{zone ? zone.price.toFixed(2): '0.00'}}</p>
+            <h5 class="color-red">Total: s/. {{total.toFixed(2)}}</h5>
         </div>
 
         <div class="col-md-12 mt-3">

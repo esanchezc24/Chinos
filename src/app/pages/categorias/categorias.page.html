@@ -10,11 +10,12 @@
 
 <ion-content class="background">
     <div class="ion-padding pt-0">
-        <ion-chip class="ion-margin-start" routerLink="/tabs/subcategorias">
+        <ion-chip *ngFor="let category of categories"
+                class="ion-margin-start mb-2" (click)="goProducts(category)">
             <ion-avatar>
-                <img src="assets/img/icon10.png">
+                <img [src]="environment.apiUrl+'/'+category.imagen">
             </ion-avatar>
-            <ion-label>Accesorios para mascotas</ion-label>
+            <ion-label>{{category.name}}</ion-label>
         </ion-chip>
 
     </div>
