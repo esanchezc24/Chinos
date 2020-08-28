@@ -1,69 +1,96 @@
-<app-headermenu></app-headermenu>
+<ion-header class="ion-no-border">
+    <ion-toolbar color="rojo">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs"></ion-back-button>
+        </ion-buttons>
+        <app-headermenu></app-headermenu>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content class="background">
-  <div class="fondo">
-  <ion-avatar class="ion-margin-top avatar">
-    <img src="../../../assets/img/avatar.png">
-  </ion-avatar>
-  </div>
-  <div class="ion-padding">
-  <ion-card>
-    <ion-item class="ion-activated">
-        <img src="../../../assets/img/icon04.png" class="icono">
-        <ion-card-header>
-            <ion-card-subtitle>DNI</ion-card-subtitle>
-            <ion-card-title>12345678</ion-card-title>
-        </ion-card-header>
-    </ion-item>
-    <ion-item class="ion-activated">
-        <img src="" class="icono">
-        <ion-card-header>
-            <ion-card-subtitle>NOMBRES</ion-card-subtitle>
-            <ion-card-title>LUIS ALEJANDRO</ion-card-title>
-        </ion-card-header>
-    </ion-item>
-    <ion-item class="ion-activated">
-        <img src="" class="icono">
-        <ion-card-header>
-            <ion-card-subtitle>APELLIDOS</ion-card-subtitle>
-            <ion-card-title>PINO VÁSQUEZ</ion-card-title>
-        </ion-card-header>
-    </ion-item>
-    <ion-item class="ion-activated">
-        <img src="../../../assets/img/icon05.png" class="icono">
-        <ion-card-header>
-            <ion-card-subtitle>E-MAIL:</ion-card-subtitle>
-            <ion-card-title>demo@pyrushd.com</ion-card-title>
-        </ion-card-header>
-    </ion-item>
-    <ion-item class="ion-activated">
-        <img src="../../../assets/img/icon06.png" class="telefono">
-        <ion-grid>
-            <ion-row>
-                <ion-col size="6">
-                    <ion-card-header>
-                        <ion-card-subtitle>CELULAR 1:</ion-card-subtitle>
-                        <ion-card-title>123456789</ion-card-title>
-                    </ion-card-header>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-card-header>
-                        <ion-card-subtitle>CELULAR 2:</ion-card-subtitle>
-                        <ion-card-title>987654321</ion-card-title>
-                    </ion-card-header>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-item>
-    <ion-item class="ion-activated">
-        <img src="../../../assets/img/icon07.png" class="direccion">
-        <ion-card-header>
-          <ion-card-subtitle>DIRECCIÓN:</ion-card-subtitle>
-          <ion-card-title>JR. BOCAYA 180 - LA ESPERANZA</ion-card-title>
-        </ion-card-header>
-    </ion-item>
-</ion-card>
-<ion-button expand="block" shape="round" color="amarillo">GUARDAR</ion-button>
-</div>
+    <div class="background-gris-ligth">
+        <div class="fondo">
+            <img src="assets/img/cab.jpg">
+            <div>
+                <img *ngIf="photo" [src]="photo" class="photo">
+            </div>
+        </div>
+        <div class="content ">
+            <div class="row background-white mb-3 mt-3" *ngIf="client">
+
+                <div class="col-md-12   dato">
+                    <div class="fila">
+                        <div class="icon">
+                            <img src="assets/img/icon04.png" alt="">
+                        </div>
+                        <div class="input">
+                            <label class="color-azul ml-2 mb-0">DNI</label>
+                            <input [(ngModel)]="form.dni" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12  dato">
+                    <div class="fila">
+                        <div class="icon">
+                            <img src="assets/img/icon04.png" alt="">
+                        </div>
+                        <div class="input">
+                            <label class="color-azul ml-2 mb-0">NOMBRES Y APELLIDOS</label>
+                            <input [(ngModel)]="form.names" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12  dato">
+                    <div class="fila">
+                        <div class="icon">
+                            <img src="assets/img/icon05.png" alt="">
+                        </div>
+                        <div class="input">
+                            <label class="color-azul ml-2 mb-0">E-MAIL</label>
+                            <input [(ngModel)]="form.email" type="text" class="form-control">
+                            <!--                            <p class="color-gris ml-2 w-100 mb-0">{{client.email}}</p>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12  dato">
+                    <div class="fila">
+                        <div class="icon">
+                            <img src="assets/img/icon06.png" alt="" class="icon_cell">
+                        </div>
+                        <div class="input celular">
+                            <label class="color-azul ml-2 mb-0">CELULAR 1</label>
+                            <input [(ngModel)]="form.phone1" type="number"
+                                   class="form-control">
+                        </div>
+                        <div class="input celular bl">
+                            <label class="color-azul ml-2 mb-0">CELULAR 2</label>
+                            <input [(ngModel)]="form.phone2" type="number"
+                                   class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12  dato">
+                    <div class="fila">
+                        <div class="icon">
+                            <img src="assets/img/icon07.png" alt="" class="icon_cell">
+                        </div>
+                        <div class="input">
+                            <label class="color-azul ml-2 mb-0">DIRECCIÓN</label>
+                            <input [(ngModel)]="form.address" type="text"
+                                   class="form-control">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn background-yellow ion-color-dark mb-1 w-100" (click)="save()">GUARDAR
+                </button>
+            </div>
+        </div>
+    </div>
+
 
 </ion-content>

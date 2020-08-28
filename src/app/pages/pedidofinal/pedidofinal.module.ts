@@ -1,22 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { PedidofinalPageRoutingModule } from './pedidofinal-routing.module';
+import {PedidofinalPageRoutingModule} from './pedidofinal-routing.module';
 
-import { PedidofinalPage } from './pedidofinal.page';
-import { ComponentsModule } from '../../components/components.module';
+import {PedidofinalPage} from './pedidofinal.page';
+import {ComponentsModule} from '../../components/components.module';
+import {SharedModule} from "../../shared.module";
+import {SharedComponentsModule} from "../../shared/shared-components.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PedidofinalPageRoutingModule,
-    ComponentsModule
-  ],
-  declarations: [PedidofinalPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        PedidofinalPageRoutingModule,
+        ComponentsModule,
+        SharedComponentsModule,
+        SharedModule,
+        ReactiveFormsModule,
+    ],
+    declarations: [PedidofinalPage]
 })
-export class PedidofinalPageModule {}
+export class PedidofinalPageModule {
+}

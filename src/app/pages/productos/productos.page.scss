@@ -1,0 +1,77 @@
+.container {
+  background: #f7f6fb;
+
+  .product {
+    margin: 0 15px;
+
+    .col-md-6 {
+      padding: 1% 5px;
+      .buttons{
+        .rad{
+          background: #fff;
+          border-radius: 50px;
+          padding: 0%;
+          width: 25px;
+          height: 25px;
+        }
+        .btn-add{
+          border-radius: 10px;
+          padding: 2%;
+        }
+      }
+    }
+  }
+
+  .content {
+    font-size: 12px;
+    background: #ececec;
+    padding: 7% 4%;
+    button {
+      font-size: 12px;
+    }
+    p{
+      margin-bottom: 2%;
+    }
+  }
+}
+
+ion-col {
+  --ion-grid-column-padding-xs: 12;
+  --ion-grid-column-padding-sm: 6;
+  --ion-grid-column-padding-md: 4;
+  --ion-grid-column-padding-lg: 3;
+}
+
+ion-card {
+  background-color: #F6F7FB;
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+}
+
+ion-card-content {
+  text-align: center;
+  color: #000000;
+}
+
+ion-card-subtitle {
+  text-align: center;
+}
+
+ion-label {
+  --color: #000;
+}
+
+.cantidadlistado {
+  background-color: #fff;
+  color: #000;
+  border-radius: 50px;
+}
+
+.agregar {
+  background-color: #FFCC29;
+}

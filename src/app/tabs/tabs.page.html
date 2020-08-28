@@ -1,7 +1,7 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom" color="white" >
-    <ion-tab-button routerLink="/tabs">
+    <ion-tab-button routerLink="/tabs/principal">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
@@ -11,12 +11,13 @@
       <ion-label>Categorias</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="#">
+    <ion-tab-button routerLink="/tabs/sedes">
       <ion-icon name="location-sharp"></ion-icon>
       <ion-label>Sedes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button routerLink="/perfil">
+    <ion-tab-button
+            onclick="window.open('https://wa.me/+51997734117?text=Hola%20necesito%20información%20de%20un%20producto', 'location=yes'); return false;">
       <ion-icon name="logo-whatsapp"></ion-icon>
       <ion-label>Llamanos</ion-label>
     </ion-tab-button>

@@ -32,12 +32,12 @@ const routes: Routes = [
         loadChildren: () => import('../pages/pedidofinal/pedidofinal.module').then( m => m.PedidofinalPageModule)
       },
       {
-        path: 'sedes',
-        loadChildren: () => import('../pages/sedes/sedes.module').then(m => m.SedesPageModule)
+        path: 'productos',
+        loadChildren: () => import('../pages/productos/productos.module').then(m => m.ProductosPageModule)
       },
       {
-        path: 'perfil',
-        loadChildren: () => import('../pages/perfil/perfil.module').then(m => m.PerfilPageModule)
+        path: 'sedes',
+        loadChildren: () => import('../pages/sedes/sedes.module').then( m => m.SedesPageModule)
       },
       {
         path: '',

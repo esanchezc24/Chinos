@@ -23,9 +23,8 @@ export class OnlyAuthenticatedGuard implements CanActivate {
         if (!environment.production){
             return true;
         }
-
         this.afAuth.authState.subscribe(status => {
-            this.isLogin = status ? true : false;
+            this.isLogin = !!status;
         });
         return this.isLogin;
     }

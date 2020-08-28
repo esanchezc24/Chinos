@@ -6,6 +6,8 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {FactoryService} from '../../services/factory.service';
 import {Facebook, FacebookLoginResponse} from '@ionic-native/facebook/ngx';
 import {auth} from 'firebase';
+import {LoadingService} from "../../services/loading.service";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
     selector: 'app-inicio',
@@ -14,12 +16,13 @@ import {auth} from 'firebase';
 })
 export class InicioPage implements OnInit {
     client = new Client();
-    loading;
 
     constructor(private afAuth: AngularFireAuth,
                 private fb: Facebook,
                 private factoyService: FactoryService,
                 private navCtrl: NavController,
+                private loading: LoadingService,
+                private alert: AlertService,
                 private router: Router) {
     }
 
@@ -27,16 +30,17 @@ export class InicioPage implements OnInit {
     ngOnInit() {
     }
     login() {
+        this.loading.presentLoading();
         this.fb.login(['email']).then(res => {
             this.authFirebase(res);
         }).catch((error) => {
             console.log(error);
-            alert('FACEBOOK ERROR :' + error);
+            this.loading.closeLoading();
+            this.alert.messageError();
         });
     }
 
     authFirebase(res: FacebookLoginResponse) {
-        // this.loading = this.presentLoading();
         const facebookCredential = auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
         this.afAuth.signInWithCredential(facebookCredential)
             .then(response => {
@@ -45,21 +49,19 @@ export class InicioPage implements OnInit {
                 this.client.email = response.user.email;
                 this.saveClient();
             }).catch(error => {
+            this.loading.closeLoading();
+            this.alert.messageError();
             console.log('FIREBASE ERROR ' + JSON.parse(error));
         });
     }
     saveClient() {
-        this.navCtrl.navigateRoot(['/tabs']);
-
         this.factoyService.setModule('clients');
         this.factoyService.post(this.client).then(res => {
             this.navCtrl.navigateRoot('/tabs');
         }).catch(erros => {
-            // this.messageError('Ha ocurrido un error y el servicio no está disponible temporalmente');
+            this.alert.messageError();
         }).finally(() => {
-            // this.loading.then(() => {
-            //     this.loadingCtrl.dismiss();
-            // });
+            this.loading.closeLoading();
         });
     }
 }

@@ -15,16 +15,18 @@ import {CartService} from "../../services/cart.service";
 export class DetallePage implements OnInit {
     product;
     environment = environment;
-
+    urlBack;
     constructor(private paramsService: ParamsService,
                 private loadingService: LoadingService,
                 private router: Router,
-                private cartService: CartService) {
+                private cartService: CartService,
+                public navCtrl: NavController) {
     }
 
     ionViewWillEnter() {
         this.product = this.paramsService.getParams().product;
-        console.log(this.product);
+        this.urlBack = atob(this.paramsService.getParams().urlBack);
+
     }
 
     ngOnInit() {
@@ -39,6 +41,9 @@ export class DetallePage implements OnInit {
 
     addCart() {
         this.cartService.addProduct(this.product);
+        const params = this.paramsService.getParams();
+        params.urlProductBack = btoa(this.router.url);
         this.router.navigate(['/tabs/pedido']);
     }
+
 }

@@ -28,8 +28,9 @@ export class PrincipalPage implements OnInit {
     };
     offers = [];
     products = [];
-    filters: any = {};
+    filters: any = {limit: 0, per_page: 6};
     environment = environment;
+
     constructor(
         private http: FactoryService,
         private loadingService: LoadingService,
@@ -55,9 +56,14 @@ export class PrincipalPage implements OnInit {
             this.offers.forEach((product, i) => {
                 this.offers[i].qty = 1;
             });
-        }).finally(() => {
+            this.getProduct();
+        }).catch(error => {
             this.loadingService.closeLoading();
         });
+
+    }
+
+    getProduct() {
         this.filters.offer = 'NO';
         this.http.get(this.filters).then((res: any) => {
             this.products = res.data;
@@ -73,9 +79,17 @@ export class PrincipalPage implements OnInit {
         });
     }
 
-    goDetail(product){
+
+    goDetail(product) {
         const params = this.paramsService.getParams();
         params.product = product;
+        params.urlBack = btoa(this.router.url);
         this.router.navigate(['/tabs/detalle']);
+    }
+
+    goProducts(name) {
+        const params = this.paramsService.getParams();
+        params.name = name;
+        this.router.navigate(['/tabs/productos']);
     }
 }

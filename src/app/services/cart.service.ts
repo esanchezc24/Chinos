@@ -39,10 +39,8 @@ export class CartService {
         let total = 0;
         this.cart.forEach((product: any) => {
             const price = product.offer === 'SI' ? product.offer_price : product.price;
-            console.log(price, product.qty);
             total += (price * product.qty);
         });
-        console.log(total);
         return total;
     }
 

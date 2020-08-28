@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="rojo">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <app-headermenu></app-headermenu>
+  </ion-toolbar>
+</ion-header>
+<app-headertitulo *ngIf="name" title="{{name}}"></app-headertitulo>
+
+<ion-content class="background-gris-ligth">
+  <div class="container ion-padding">
+    <div class="row">
+      <div class="w-100 product row">
+        <div class="col-md-6" *ngFor="let product of products">
+          <div class="background-white text-center">
+            <div class="" (click)="goDetail(product)">
+              <img [src]="environment.apiUrl+'/'+product.imagen" alt="">
+            </div>
+            <div class="content text-center">
+              <p> S/.  {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
+              <p>{{product.name}}</p>
+              <div class="buttons">
+                <button class="btn background-yellow w-100 btn-add" (click)="goDetail(product)">
+                  Agregar
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content>
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

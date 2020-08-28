@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {  MenuController } from '@ionic/angular';
+import {MenuController, NavController} from '@ionic/angular';
 import {CartService} from "../../services/cart.service";
 import {environment} from "../../../environments/environment";
 import {Location} from "@angular/common";
+import {ParamsService} from "../../services/params.service";
 
 @Component({
   selector: 'app-pedido',
@@ -11,11 +12,16 @@ import {Location} from "@angular/common";
 })
 export class PedidoPage implements OnInit {
   environment = environment;
+  urlBack;
   constructor(public cartService: CartService,
-              private location: Location) { }
+              public navCtrl: NavController,
+              private paramsService: ParamsService) { }
 
+  ionViewWillEnter() {
+    this.urlBack = atob(this.paramsService.getParams().urlProductBack);
+
+  }
   ngOnInit() {
-    console.log(this.cartService.cartTotal())
   }
   add(n, product) {
     product.qty += n;
@@ -24,6 +30,6 @@ export class PedidoPage implements OnInit {
     }
   }
   back(){
-    this.location.back();
+    this.navCtrl.navigateBack(this.urlBack);
   }
 }

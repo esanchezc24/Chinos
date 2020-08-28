@@ -81,3 +81,45 @@ ion-radio-group {
 .hidden{
   display: none;
 }
+ion-alert {
+  text-align: center;
+  .alert-wrapper.sc-ion-alert-md{
+    border-radius: 20px;
+    width: 100%;
+    max-width: 80%;
+  }
+  .alert-head.sc-ion-alert-md {
+    text-align: center;
+  }
+
+  .alert-title.sc-ion-alert-md {
+    font-size: 15px;
+  }
+
+  .alert-message.sc-ion-alert-md {
+    font-size: 14px;
+    padding: 0 5% 5% !important;
+    img{
+      width: 40px;
+    }
+  }
+  .alert-button-group.sc-ion-alert-md{
+    justify-content: center;
+  }
+
+  &.detalle {
+    .alert-button.sc-ion-alert-md {
+      width: 100%;
+      .alert-button-inner.sc-ion-alert-md {
+        justify-content: center;
+      }
+    }
+  }
+}
+ion-loading{
+  .loading-wrapper.sc-ion-loading-md{
+    background: #fff;
+    color: #2F73B8;
+    border-radius: 15px;
+  }
+}

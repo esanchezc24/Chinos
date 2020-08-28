@@ -32,7 +32,8 @@ export class ControlMessageComponent implements OnInit {
   }
 
   isInvalid( control: AbstractControl ) {
-    return control.errors && control.touched;
+
+    return control && control.errors && control.touched;
   }
 
   private getMessage( errorName: string, errorValue: any ) {

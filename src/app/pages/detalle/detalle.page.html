@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/tabs/subcategorias"></ion-back-button>
+            <ion-back-button defaultHref="{{this.urlBack}}" ></ion-back-button>
         </ion-buttons>
         <app-headermenu></app-headermenu>
     </ion-toolbar>
@@ -9,7 +9,7 @@
 <app-headertitulo title="CARTELO 2020"></app-headertitulo>
 
 <ion-content class="background-gris-ligth">
-    <div class="container" *ngIf="product">
+    <div class="container mb-3" *ngIf="product">
         <div class="row">
             <ion-slides pager="true">
                 <ion-slide *ngFor="let galery of product.galeries">
@@ -31,8 +31,11 @@
             <div class="col-md-5">
             <span>Stock: {{product.stock}}</span>
             </div>
+            <div class="col-md-12 pt-3" *ngIf="!product.stock">
+                <span class="color-red">No disponible</span>
+            </div>
             <div class="col-md-12 mt-3">
-                <button class="btn background-yellow w-100 btn-add" (click)="addCart()">Agregar</button>
+                <button class="btn background-yellow w-100 btn-add" [disabled]="!product.stock" (click)="addCart()">Agregar</button>
             </div>
         </div>
     </div>

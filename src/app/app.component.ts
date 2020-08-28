@@ -30,7 +30,7 @@ export class AppComponent {
         if (status){
           this.navCtrl.navigateRoot('/tabs');
         }else{
-          this.navCtrl.navigateRoot('/login');
+          this.navCtrl.navigateRoot('/inicio');
         }
       });
     }
