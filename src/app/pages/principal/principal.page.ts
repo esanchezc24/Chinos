@@ -17,14 +17,12 @@ export class PrincipalPage implements OnInit {
         speed: 1000
     };
     slideOptsOne = {
-        initialSlide: 0,
         slidesPerView: 3,
         autoplay: true,
         spaceBetween: 10,
-        speed: 1000
+        speed: 1000,
     };
     sliderProduct = {
-        initialSlide: 0,
         slidesPerView: 2,
         autoplay: true,
         spaceBetween: 10,
@@ -67,12 +65,12 @@ export class PrincipalPage implements OnInit {
         this.filters.offer = 'SI';
         this.http.get(this.filters).then((res: any) => {
             this.offers = res.data;
-            if (this.offers.length < 3) {
-                const num = this.offers.length < 3 ? 3 - this.offers.length : this.offers.length;
-                for (let i = 0; i < num; i++) {
-                    this.offers.push({});
-                }
-            }
+            // if (this.offers.length < 3) {
+            //     const num = this.offers.length < 3 ? 3 - this.offers.length : this.offers.length;
+            //     for (let i = 0; i < num; i++) {
+            //         this.offers.push({});
+            //     }
+            // }
 
             this.offers.forEach((product, i) => {
                 this.offers[i].qty = 1;
@@ -87,12 +85,12 @@ export class PrincipalPage implements OnInit {
         this.filters.offer = 'NO';
         this.http.get(this.filters).then((res: any) => {
             this.products = res.data;
-            const num = this.products.length < 2 ? 2 - this.products.length : this.products.length;
-            if (this.products.length < 2) {
-                for (let i = 0; i < num; i++) {
-                    this.products.push({});
-                }
-            }
+            // const num = this.products.length < 2 ? 2 - this.products.length : this.products.length;
+            // if (this.products.length < 2) {
+            //     for (let i = 0; i < num; i++) {
+            //         this.products.push({});
+            //     }
+            // }
             this.products.forEach((product, i) => {
                 this.products[i].qty = 1;
             });

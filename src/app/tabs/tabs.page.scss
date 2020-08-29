@@ -1,8 +1,35 @@
-
-ion-icon {
-    color: #96989A;
+ion-tab-bar{
+    border: 0;
 }
-
-ion-label {
-    color: #96989A;
+.icon1{
+    background: url("src/assets/img/btn01.jpg");
+    background-size: 100% 100%;
+}
+.icon2{
+    background: url("src/assets/img/btn02.jpg");
+    background-size: 100% 100%;
+}
+.icon3{
+    background: url("src/assets/img/btn03.jpg");
+    background-size: 100% 100%;
+}
+.icon4{
+    background: url("src/assets/img/btn04.jpg");
+    background-size: 100% 100%;
+}
+.icon1.red{
+    background: url("src/assets/img/btn01_rojo.jpg");
+    background-size: 100% 100%;
+}
+.icon2.red{
+    background: url("src/assets/img/btn02_rojo.jpg");
+    background-size: 100% 100%;
+}
+.icon3.red{
+    background: url("src/assets/img/btn03_rojo.jpg");
+    background-size: 100% 100%;
+}
+.icon4.red{
+    background: url("src/assets/img/btn04_rojo.jpg");
+    background-size: 100% 100%;
 }

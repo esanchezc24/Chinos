@@ -31,15 +31,15 @@
 
             </div>
             <div class="w-100 ofert row">
-                <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let offer of offers"  class="offers">
+                <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;"  class="w-100">
+                    <ion-slide *ngFor="let offer of offers"  >
                         <div class="background-white text-center" *ngIf="offer.id" (click)="goDetail(offer)">
                             <div>
                                 <img-loader [src]="environment.apiUrl+'/'+offer.imagen"   [useImg]="true"></img-loader>
 <!--                                <img-loader src="http://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-buzz.png"-->
 <!--                                            [useImg]="true"></img-loader>-->
                             </div>
-                            <div>
+                            <div class="desc">
                                 <button class="background-yellow">
                                     S/. {{offer.offer_price.toFixed(2)}}
                                 </button>
@@ -68,13 +68,13 @@
 
             </div>
             <div class="w-100 prod row mb-3">
-                <ion-slides [options]="sliderProduct" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let product of products" [class.products]="products.length < 2" class="products">
+                <ion-slides [options]="sliderProduct" style=" margin: 0 15px;" class="w-100">
+                    <ion-slide *ngFor="let product of products">
                         <div class="background-white text-center" *ngIf="product.id" (click)="goDetail(product)">
                             <div>
                                 <img [src]="environment.apiUrl+'/'+product.imagen" alt="">
                             </div>
-                            <div>
+                            <div class="desc">
                                 <button class="background-yellow">
                                     S/. {{product.price.toFixed(2)}}
                                 </button>

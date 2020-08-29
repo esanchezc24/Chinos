@@ -20,11 +20,13 @@
     .ofert, .prod{
         position: relative;
         div{
-            padding: 1% 5px;
             p{
                 font-size: 11px;
                 margin: 0.5rem 0;
             }
+        }
+        .desc{
+            padding: 1% 5px;
         }
     }
     .title{
