@@ -15,7 +15,10 @@ import {Facebook} from '@ionic-native/facebook/ngx';
 import {firebaseConfig} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {SharedComponentsModule} from "./shared/shared-components.module";
+import {SharedComponentsModule} from './shared/shared-components.module';
+import {BuscadorPageModule} from "./pages/buscador/buscador.module";
+import { IonicImageLoader } from 'ionic-image-loader';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -33,12 +36,15 @@ import {SharedComponentsModule} from "./shared/shared-components.module";
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireAuthModule,
         SharedComponentsModule,
+        BuscadorPageModule,
+        IonicImageLoader.forRoot()
     ],
     providers: [
         StatusBar,
         SplashScreen,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         Facebook,
+        WebView
     ],
     bootstrap: [AppComponent]
 })

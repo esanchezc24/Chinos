@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="rojo">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="modal.dismiss()">
+                <ion-icon name="arrow-back" class="color-white"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="color-white text-center">Buscador</ion-title>
+        <ion-buttons slot="end" style="min-width: 48px;">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container ion-padding h-100">
+        <ion-searchbar
+                (search)="search($event)"
+                placeholder="Buscar" ></ion-searchbar>
+        <div class="row">
+            <div class="w-100 product row">
+                <div class="col-md-6" *ngFor="let product of products">
+                    <div class="background-white text-center">
+                        <div class="" (click)="goDetail(product)">
+                            <img-loader [src]="environment.apiUrl+'/'+product.imagen"   [useImg]="true"></img-loader>
+                        </div>
+                        <div class="content text-center">
+                            <p>
+                                S/.  {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
+                            <p>   {{product.name.length > 17 ? (product.name | slice:0:17) + '...' : product.name}}</p>
+                            <div class="buttons">
+                                <button class="btn background-yellow w-100 btn-add" (click)="goDetail(product)">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content>
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ion-content>

@@ -12,6 +12,10 @@ import {Router} from "@angular/router";
     styleUrls: ['./principal.page.scss'],
 })
 export class PrincipalPage implements OnInit {
+    sliderOpt = {
+        autoplay: true,
+        speed: 1000
+    };
     slideOptsOne = {
         initialSlide: 0,
         slidesPerView: 3,
@@ -30,6 +34,7 @@ export class PrincipalPage implements OnInit {
     products = [];
     filters: any = {limit: 0, per_page: 6};
     environment = environment;
+    sliders = [];
 
     constructor(
         private http: FactoryService,
@@ -45,14 +50,30 @@ export class PrincipalPage implements OnInit {
 
     private initialLoad() {
         this.loadingService.presentLoading();
+        this.http.setModule('sliders');
+        this.http.get().then((res: any) => {
+            this.sliders = res.data;
+            console.log(this.sliders);
+            this.getOffers();
+        }).catch(error => {
+            this.loadingService.closeLoading();
+        });
+
+
+    }
+
+    getOffers() {
         this.http.setModule('products');
         this.filters.offer = 'SI';
         this.http.get(this.filters).then((res: any) => {
             this.offers = res.data;
-            const num = this.offers.length < 3 ? 3 - this.offers.length : this.offers.length;
-            for (let i = 0; i < num; i++) {
-                this.offers.push({});
+            if (this.offers.length < 3) {
+                const num = this.offers.length < 3 ? 3 - this.offers.length : this.offers.length;
+                for (let i = 0; i < num; i++) {
+                    this.offers.push({});
+                }
             }
+
             this.offers.forEach((product, i) => {
                 this.offers[i].qty = 1;
             });
@@ -60,7 +81,6 @@ export class PrincipalPage implements OnInit {
         }).catch(error => {
             this.loadingService.closeLoading();
         });
-
     }
 
     getProduct() {
@@ -68,8 +88,10 @@ export class PrincipalPage implements OnInit {
         this.http.get(this.filters).then((res: any) => {
             this.products = res.data;
             const num = this.products.length < 2 ? 2 - this.products.length : this.products.length;
-            for (let i = 0; i < num; i++) {
-                this.products.push({});
+            if (this.products.length < 2) {
+                for (let i = 0; i < num; i++) {
+                    this.products.push({});
+                }
             }
             this.products.forEach((product, i) => {
                 this.products[i].qty = 1;

@@ -7,21 +7,14 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="background">
+<ion-content class="background-gris-ligth">
     <div class="slider slider-principal">
         <div class="ion-padding">
-            <ion-slides pager="true">
-                <ion-slide>
-                    <img src="assets/img/slider.png" alt="">
+            <ion-slides pager="true" [options]="sliderOpt">
+                <ion-slide *ngFor="let slider of sliders">
+                    <img-loader [src]="environment.apiUrl+'/'+slider.imagen"   [useImg]="true"></img-loader>
                 </ion-slide>
 
-                <ion-slide>
-                    <img src="assets/img/slider.png" alt="">
-                </ion-slide>
-
-                <ion-slide>
-                    <img src="assets/img/slider.png" alt="">
-                </ion-slide>
             </ion-slides>
         </div>
     </div>
@@ -39,16 +32,22 @@
             </div>
             <div class="w-100 ofert row">
                 <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let offer of offers" class="offers" >
+                    <ion-slide *ngFor="let offer of offers"  class="offers">
                         <div class="background-white text-center" *ngIf="offer.id" (click)="goDetail(offer)">
                             <div>
-                                <img [src]="environment.apiUrl+'/'+offer.imagen" alt="">
+                                <img-loader [src]="environment.apiUrl+'/'+offer.imagen"   [useImg]="true"></img-loader>
+<!--                                <img-loader src="http://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-buzz.png"-->
+<!--                                            [useImg]="true"></img-loader>-->
                             </div>
                             <div>
                                 <button class="background-yellow">
                                     S/. {{offer.offer_price.toFixed(2)}}
                                 </button>
-                                <p class="color-gris">{{offer.name}}</p>
+                                <p class="color-gris">
+                                    <!--                                    {{offer.name.length > 15 }}-->
+                                    <!--                                    {{ (offer.name.length >= 14) ? (offer.name | slice:0:14) + '...' : ((offer.name) }}-->
+                                    {{offer.name.length > 15 ? (offer.name | slice:0:14) + '...' : offer.name}}
+                                </p>
                             </div>
                         </div>
                     </ion-slide>
@@ -70,7 +69,7 @@
             </div>
             <div class="w-100 prod row mb-3">
                 <ion-slides [options]="sliderProduct" style=" margin: 0 15px;">
-                    <ion-slide *ngFor="let product of products" class="products" >
+                    <ion-slide *ngFor="let product of products" [class.products]="products.length < 2" class="products">
                         <div class="background-white text-center" *ngIf="product.id" (click)="goDetail(product)">
                             <div>
                                 <img [src]="environment.apiUrl+'/'+product.imagen" alt="">

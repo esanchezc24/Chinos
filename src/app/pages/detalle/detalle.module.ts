@@ -8,6 +8,7 @@ import { DetallePageRoutingModule } from './detalle-routing.module';
 
 import { DetallePage } from './detalle.page';
 import { ComponentsModule } from '../../components/components.module';
+import {IonicImageLoader} from "ionic-image-loader";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     DetallePageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    IonicImageLoader
   ],
   declarations: [DetallePage]
 })

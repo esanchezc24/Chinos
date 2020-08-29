@@ -8,6 +8,7 @@ import { ProductosPageRoutingModule } from './productos-routing.module';
 
 import { ProductosPage } from './productos.page';
 import {ComponentsModule} from "../../components/components.module";
+import {IonicImageLoader} from "ionic-image-loader";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {ComponentsModule} from "../../components/components.module";
         FormsModule,
         IonicModule,
         ProductosPageRoutingModule,
-        ComponentsModule
+        ComponentsModule,
+        IonicImageLoader
     ],
   declarations: [ProductosPage]
 })

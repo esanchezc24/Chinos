@@ -6,7 +6,6 @@
         <app-headermenu></app-headermenu>
     </ion-toolbar>
 </ion-header>
-<app-headertitulo *ngIf="category" title="{{category.name}}"></app-headertitulo>
 
 <ion-content class="background-gris-ligth">
     <div class="container ion-padding">
@@ -20,7 +19,7 @@
                         <div class="content text-center">
                             <p>
                                 S/.  {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
-                            <p>{{product.name}}</p>
+                            <p>   {{product.name.length > 17 ? (product.name | slice:0:17) + '...' : product.name}}</p>
                             <div class="buttons">
                                 <button class="btn background-yellow w-100 btn-add" (click)="goDetail(product)">
                                     Agregar

@@ -11,7 +11,7 @@ import {SharedModule} from "../shared.module";
         ControlMessageComponent
     ],
     imports: [
-        SharedModule
+        SharedModule,
     ],
 
 })

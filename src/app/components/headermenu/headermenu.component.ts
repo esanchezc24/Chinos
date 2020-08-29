@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ParamsService} from "../../services/params.service";
-import {Router} from "@angular/router";
+import {ParamsService} from '../../services/params.service';
+import {Router} from '@angular/router';
+import {ModalController} from '@ionic/angular';
+import {BuscadorPage} from "../../pages/buscador/buscador.page";
 
 @Component({
     selector: 'app-headermenu',
@@ -12,7 +14,8 @@ export class HeadermenuComponent implements OnInit {
 
     constructor(
         private paramsService: ParamsService,
-        private router: Router
+        private router: Router,
+        public modal: ModalController
     ) {
     }
 
@@ -23,6 +26,14 @@ export class HeadermenuComponent implements OnInit {
         const params = this.paramsService.getParams();
         params.urlProductBack = btoa(this.router.url);
         this.router.navigate(['/tabs/pedido']);
+    }
+
+    async goBuscador(){
+        const modal = await this.modal.create({
+            component: BuscadorPage,
+            cssClass: 'my-custom-class'
+        });
+        return await modal.present();
     }
 
 }

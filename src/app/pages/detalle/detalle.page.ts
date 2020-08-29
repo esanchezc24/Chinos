@@ -16,6 +16,10 @@ export class DetallePage implements OnInit {
     product;
     environment = environment;
     urlBack;
+    sliderOpt = {
+        autoplay: true,
+        speed: 1000
+    };
     constructor(private paramsService: ParamsService,
                 private loadingService: LoadingService,
                 private router: Router,

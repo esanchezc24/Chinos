@@ -6,20 +6,19 @@
         <app-headermenu></app-headermenu>
     </ion-toolbar>
 </ion-header>
-<app-headertitulo title="CARTELO 2020"></app-headertitulo>
-
 <ion-content class="background-gris-ligth">
     <div class="container mb-3" *ngIf="product">
         <div class="row">
-            <ion-slides pager="true">
+            <ion-slides pager="true" [options]="sliderOpt">
                 <ion-slide *ngFor="let galery of product.galeries">
-                    <img [src]="environment.apiUrl+'/'+galery.imagen" alt="">
+                    <img-loader [src]="environment.apiUrl+'/'+galery.imagen"   [useImg]="true"></img-loader>
                 </ion-slide>
             </ion-slides>
         </div>
         <div class="row">
             <div class="ion-padding color-gris w-100">
                 <p>{{product.name}}</p>
+                <p>{{product.descripcion}}</p>
                 <p class="price">S/. {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
             </div>
             <div class="col-md-7">
