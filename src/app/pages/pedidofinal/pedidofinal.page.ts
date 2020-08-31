@@ -45,7 +45,7 @@ export class PedidofinalPage implements OnInit {
     ionViewWillEnter() {
         this.loading.presentLoading();
         this.afAuth.authState.subscribe(res => {
-            const userID = environment.production ? res.uid : 'MlrifWvUVnTps7GNvxoNjV48gbF2';
+            const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
             this.http.setModule('clients');
             this.http.get({userID}).then((response: any) => {
                 this.client = response.data;
@@ -70,8 +70,10 @@ export class PedidofinalPage implements OnInit {
             // this.eventsService.destroy('event_pay_success');
         });
         this.eventsService.subscribe('event_pay_error', (error: any) => {
+            console.log("EVENTO ERROR");
             this.loading.closeLoading();
             this.alert.messageError(error);
+
             // this.loadingCulqi.dismiss();
             // this.eventsService.unsubscribe('event_pay_error');
             //
@@ -225,6 +227,7 @@ export class PedidofinalPage implements OnInit {
                 }
 
             }).catch(e => {
+                console.log("ERROR", e);
                 this.loading.closeLoading();
                 this.alert.messageError();
             });
@@ -249,7 +252,9 @@ export class PedidofinalPage implements OnInit {
         this.form.get('type_voucher').setValue('BOLETA');
         this.form.get('type_pay').setValue('EFECTIVO');
         this.departament.value = '';
-        this.zone.value = '';
+        if (this.zone){
+            this.zone.value = '';
+        }
         this.send = null;
     }
 

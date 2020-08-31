@@ -48,20 +48,11 @@ export class InicioPage implements OnInit {
 
     loginGoogle() {
         this.loading.presentLoading();
-        // {
-        //     webClientId: '960461558806-934dd53oa29hfsjsj2qurgb0ueta2j93.apps.googleusercontent.com',
-        //         offline: true
-        // }
-        console.log('GOOGLE CREDENCIALES', this.googlePlus.getSigningCertificateFingerprint());
         this.googlePlus.login({})
             .then(result => {
-                console.log('GOOGLE', result);
-                // this.result = JSON.stringify(result);
                 this.authFirebase(result, 'google');
             })
             .catch(err => {
-                console.log('GOOGLE ERROR', JSON.stringify(err));
-                this.result = JSON.stringify(err);
                 this.loading.closeLoading();
                 this.alert.messageError();
             });
@@ -77,8 +68,6 @@ export class InicioPage implements OnInit {
         console.log('CRENDECIALES', credential);
         this.afAuth.signInWithCredential(credential)
             .then(response => {
-                console.log('FIREBASE', response);
-                // this.resultFire = JSON.stringify(response);
                 this.client.userID = response.user.uid;
                 this.client.names = response.user.displayName;
                 this.client.email = response.user.email;
