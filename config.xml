@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="app.chinoimportaciones.com" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="2" id="app.chinoimportaciones.com" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>El Chino</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>El Chino</description>
+    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Pyrus Studio</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -21,7 +21,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="Orientation" value="portrait" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyD-2zIYpWDuYjPIxuBlgZ7rZzEbySaB0Uk" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyALBuSTvXG0q-xc3hKSZ9Z1tcT_P3rMjAk" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />

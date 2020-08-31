@@ -39,8 +39,8 @@ export class PerfilPage implements OnInit {
     });
   }
   getPhoto() {
-    this.photo = this.authState ? this.authState.photoURL + '?type=large&redirect=true&width=500&height=500' :
-        'https://graph.facebook.com/3107407929349183/picture?type=large&redirect=true&width=500&height=500'
+    this.photo = this.authState ? this.authState.photoURL + '?type=large&redirect=true' :
+        'https://graph.facebook.com/3107407929349183/picture?type=large&redirect=true';
   }
 
   save() {

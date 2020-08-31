@@ -19,6 +19,7 @@ import {SharedComponentsModule} from './shared/shared-components.module';
 import {BuscadorPageModule} from "./pages/buscador/buscador.module";
 import { IonicImageLoader } from 'ionic-image-loader';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -44,7 +45,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
         SplashScreen,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         Facebook,
-        WebView
+        WebView,
+        GooglePlus
     ],
     bootstrap: [AppComponent]
 })

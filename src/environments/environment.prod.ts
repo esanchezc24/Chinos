@@ -3,7 +3,7 @@ export const environment = {
   apiUrl: 'https://www.chinoimportaciones.com',
 };
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBDDYSCWMUPA2cdaWukeZUSJ5pmRaCPlC4',
+  apiKey: 'AIzaSyDwV8O7vtY3pqNiQC1QTurRcjZevlBT-ds',
   authDomain: 'chinoimportaciones-f62ca.firebaseapp.com',
   databaseURL: 'https://chinoimportaciones-f62ca.firebaseio.com',
   projectId: 'chinoimportaciones-f62ca',

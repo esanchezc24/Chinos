@@ -12,6 +12,11 @@
         width: 100%;
         padding: 4%;
         font-size: 17px;
+        background: #EAEDF2;
+        color: #96989A;
+    }
+    img{
+        width: 20px;
     }
 }
 ion-grid {
@@ -26,7 +31,7 @@ ion-grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 72%;
+    height: 60%;
 }
 
 ion-label {

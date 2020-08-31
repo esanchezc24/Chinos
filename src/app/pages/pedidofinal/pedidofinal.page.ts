@@ -66,7 +66,7 @@ export class PedidofinalPage implements OnInit {
             // this.eventsService.destroy('event_pay');
         });
         this.eventsService.subscribe('event_pay_success', (data: any) => {
-            this.changePayCulqi();
+            this.changePayCulqi(data.id);
             // this.eventsService.destroy('event_pay_success');
         });
         this.eventsService.subscribe('event_pay_error', (error: any) => {
@@ -253,9 +253,9 @@ export class PedidofinalPage implements OnInit {
         this.send = null;
     }
 
-    changePayCulqi() {
+    changePayCulqi(culqiId) {
         this.http.setModule('order/update');
-        this.http.post({order_id: this.order.id}).then((res: any) => {
+        this.http.post({order_id: this.order.id, culqi_id: culqiId}).then((res: any) => {
             this.alert.messageSuccessOrder();
             this.resetOrder();
         }).catch(error => {
