@@ -3,15 +3,18 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="{{this.urlBack}}" ></ion-back-button>
         </ion-buttons>
-        <app-headermenu></app-headermenu>
+        <app-headermenu (evSearch)="eveDetail($event)"></app-headermenu>
     </ion-toolbar>
 </ion-header>
 <ion-content class="background-gris-ligth">
     <div class="container mb-3" *ngIf="product">
-        <div class="row">
-            <ion-slides pager="true" [options]="sliderOpt">
+        <div class="row w-100 mr-0 ml-0" >
+            <ion-slides #slides pager="true" [options]="sliderOpt"  class="w-100">
                 <ion-slide *ngFor="let galery of product.galeries">
                     <img-loader [src]="environment.apiUrl+'/'+galery.imagen"   [useImg]="true"></img-loader>
+                </ion-slide>
+                <ion-slide *ngFor="let video of product.videos">
+                    <iframe  [src]="video.embed | pipe" class="w-100" style="height: 250px;" allowfullscreen> </iframe>
                 </ion-slide>
             </ion-slides>
         </div>

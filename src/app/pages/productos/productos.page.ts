@@ -43,15 +43,15 @@ export class ProductosPage implements OnInit {
             }
 
         }
+
         this.loadingService.presentLoading();
         this.http.setModule('products');
-        console.log(this.name);
         this.filters.offer = this.name === 'OFERTAS' ? 'SI' : 'NO';
         this.http.get(this.filters).then((res: any) => {
-            this.products = res.data;
             this.total = res.total;
-            this.products.forEach((product, i) => {
-                this.products[i].qty = 1;
+            res.data.forEach((product, i) => {
+                product.qty = 1;
+                this.products.push(product);
             });
         }).finally(() => {
             this.loadingService.closeLoading();

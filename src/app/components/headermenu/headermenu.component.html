@@ -3,10 +3,10 @@
 <!--    <ion-buttons slot="start">-->
 <!--      <ion-menu-button auto-hide="false" menu="first"></ion-menu-button>-->
 <!--    </ion-buttons>-->
-<ion-buttons class="ion-float-left" style="width: 80%" (click)="goBuscador()">
+<ion-buttons  class="ion-float-left" style="width: 80%" (click)="goBuscador()">
     <div class="search w-100">
         <input placeholder="Buscar" type="text" class="">
-        <i class="fa fa-search"></i>
+        <i class="fa fa-search" *ngIf="search"></i>
     </div>
 </ion-buttons>
 <ion-buttons slot="end" style="width: 20%" class="ion-float-left mt-2">

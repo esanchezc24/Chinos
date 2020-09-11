@@ -46,10 +46,10 @@ export class SubcategoriasPage implements OnInit {
         this.http.setModule('products');
         this.filters.id_category = this.category.id
         this.http.get(this.filters).then((res: any) => {
-            this.products = res.data;
             this.total = res.total;
-            this.products.forEach((product, i) => {
-                this.products[i].qty = 1;
+            res.data.forEach((product, i) => {
+                product.qty = 1;
+                this.products.push(product);
             });
         }).finally(() => {
             this.loadingService.closeLoading();

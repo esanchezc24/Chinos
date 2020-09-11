@@ -50,12 +50,11 @@ export class BuscadorPage implements OnInit {
         this.loading.presentLoading();
         this.http.setModule('products');
         this.http.get(this.filters).then((res: any) => {
-            this.products = res.data;
-            this.products.forEach((product, i) => {
-                this.products[i].qty = 1;
-            });
-            console.log(this.products);
             this.total = res.total;
+            res.data.forEach((product, i) => {
+                product.qty = 1;
+                this.products.push(product);
+            });
         }).finally(() => {
             this.loading.closeLoading();
         });
@@ -74,6 +73,7 @@ export class BuscadorPage implements OnInit {
         const params = this.paramsService.getParams();
         params.product = product;
         params.urlBack = btoa(this.router.url);
+        this.modal.dismiss(product);
         this.router.navigate(['/tabs/detalle']);
     }
 }
