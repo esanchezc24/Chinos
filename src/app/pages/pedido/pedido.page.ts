@@ -22,6 +22,7 @@ export class PedidoPage implements OnInit {
 
   }
   ngOnInit() {
+    console.log(this.cartService.getCart());
   }
   add(n, product) {
     product.qty += n;

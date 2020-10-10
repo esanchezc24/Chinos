@@ -1,28 +1,47 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="{{this.urlBack}}" ></ion-back-button>
+            <ion-back-button defaultHref="{{this.urlBack}}"></ion-back-button>
         </ion-buttons>
         <app-headermenu (evSearch)="eveDetail($event)"></app-headermenu>
     </ion-toolbar>
 </ion-header>
 <ion-content class="background-gris-ligth">
     <div class="container mb-3" *ngIf="product">
-        <div class="row w-100 mr-0 ml-0" >
-            <ion-slides #slides pager="true" [options]="sliderOpt"  class="w-100">
+        <div class="row w-100 mr-0 ml-0">
+            <ion-slides #slides pager="true" [options]="sliderOpt" class="w-100">
+                <ion-slide>
+                    <img-loader [src]="environment.apiUrl+'/'+product.imagen" [useImg]="true"></img-loader>
+                </ion-slide>
                 <ion-slide *ngFor="let galery of product.galeries">
-                    <img-loader [src]="environment.apiUrl+'/'+galery.imagen"   [useImg]="true"></img-loader>
+                    <img-loader [src]="environment.apiUrl+'/'+galery.imagen" [useImg]="true"></img-loader>
                 </ion-slide>
                 <ion-slide *ngFor="let video of product.videos">
-                    <iframe  [src]="video.embed | pipe" class="w-100" style="height: 250px;" allowfullscreen> </iframe>
+                    <iframe [src]="video.embed | pipe" class="w-100" style="height: 250px;" allowfullscreen></iframe>
                 </ion-slide>
             </ion-slides>
         </div>
         <div class="row">
-            <div class="ion-padding color-gris w-100">
-                <p>{{product.name}}</p>
-                <p>{{product.descripcion}}</p>
-                <p class="price">S/. {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
+            <div class="ion-padding color-gris w-100 ion-text-left">
+                <h6><strong>{{product.name}}</strong></h6>
+                <p [innerHTML]="product.descripcion" class="mb-2"></p>
+                <ng-container *ngIf="product.colors.length > 0">
+                    <p class="color-gris mb-0"><strong>Colores: </strong></p>
+                    <ion-list class="background-gris-ligth" >
+                        <ion-radio-group>
+                            <ion-item class="w-25 ion-float-left background-gris-ligth" *ngFor="let color of product.colors">
+                                <ion-label class="color-gris">
+                                    <div style="background: {{color.code}};width: 20px;height: 17px;"></div>
+                                </ion-label>
+                                <ion-radio color="secundary" slot="start" [value]="color.id"
+                                           (click)="colorId = color.id"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+                    </ion-list>
+                </ng-container>
+
+                <p class="price">
+                    S/. {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</p>
             </div>
             <div class="col-md-7">
                 <span class="mr-2">Cantidad</span>
@@ -31,13 +50,15 @@
                 <button class="rad" (click)="add(+1)">+</button>
             </div>
             <div class="col-md-5">
-            <span>Stock: {{product.stock}}</span>
+                <span>Stock: {{product.stock}}</span>
             </div>
             <div class="col-md-12 pt-3" *ngIf="!product.stock">
                 <span class="color-red">No disponible</span>
             </div>
             <div class="col-md-12 mt-3">
-                <button class="btn background-yellow w-100 btn-add" [disabled]="!product.stock" (click)="addCart()">Agregar</button>
+                <button class="btn background-yellow w-100 btn-add" [disabled]="!product.stock" (click)="addCart()">
+                    Agregar
+                </button>
             </div>
         </div>
     </div>

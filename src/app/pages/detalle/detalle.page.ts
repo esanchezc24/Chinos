@@ -25,13 +25,13 @@ export class DetallePage implements OnInit {
         speed: 1000,
         // loop: true
     };
+    colorId;
 
     constructor(private paramsService: ParamsService,
                 private loadingService: LoadingService,
                 private router: Router,
                 private cartService: CartService,
-                public navCtrl: NavController,
-                private sanitizer: DomSanitizer) {
+                public navCtrl: NavController) {
     }
 
     ionViewWillEnter() {
@@ -43,12 +43,12 @@ export class DetallePage implements OnInit {
     ngOnInit() {
     }
 
-    ionViewDidLeave(){
-        console.log("ADIOS");
+    ionViewDidLeave() {
         if (this.slides) {
             this.slides.slideTo(0);
         }
     }
+
     add(n) {
         this.product.qty += n;
         if (this.product.qty < 1) {
@@ -56,12 +56,27 @@ export class DetallePage implements OnInit {
         }
     }
 
+    selectColor(e) {
+        if (e) {
+            console.log(e.detail.value);
+        }
+    }
+
     addCart() {
+        if (this.product.colors.length && !this.colorId) {
+            return;
+        }
+        if (this.product.colors.length) {
+            const color = this.product.colors.find(k => k.id === this.colorId);
+            this.product.color_id = color.id;
+            this.product.code = color.code;
+        }
         this.cartService.addProduct(this.product);
         const params = this.paramsService.getParams();
         params.urlProductBack = btoa(this.router.url);
         this.router.navigate(['/tabs/pedido']);
     }
+
 
     eveDetail(product) {
         if (product) {

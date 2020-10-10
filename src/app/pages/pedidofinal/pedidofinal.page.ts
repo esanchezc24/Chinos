@@ -82,16 +82,17 @@ export class PedidofinalPage implements OnInit {
 
     iniForm() {
         this.form = this.fb.group({
-            address_order: [null, [Validators.required]],
+            address_order: [null],
             reference: [null],
             type_voucher: ['BOLETA', [Validators.required]],
             dni: [this.client ? this.client.dni : null, [Validators.required]],
-            address: [this.client ? this.client.address : null, [Validators.required]],
+            address: [this.client ? this.client.address : null],
             type_pay: ['EFECTIVO', [Validators.required]],
             amount_pay: [null, [Validators.required]],
-            departament_id: [null, [Validators.required]],
+            departament_id: [null],
             zone_id: [null],
             client_id: [this.client.id],
+            type: [null,  [Validators.required]],
         });
         this.formCulqi = this.fb.group({
             card: [!environment.production ? '4111111111111111' : null],
@@ -229,7 +230,7 @@ export class PedidofinalPage implements OnInit {
             }).catch(e => {
                 console.log("ERROR", e);
                 this.loading.closeLoading();
-                this.alert.messageError();
+                this.alert.messageError(e.error.message);
             });
         }
     }
@@ -239,7 +240,9 @@ export class PedidofinalPage implements OnInit {
         formData.products = [];
         formData.total = this.total;
         this.cartService.getCart().forEach(product => {
-            formData.products.push({id: product.id, qty: product.qty});
+            formData.products.push(
+                {id: product.id, qty: product.qty, color_id: product.color_id}
+                );
         });
         return formData;
     }
@@ -257,7 +260,15 @@ export class PedidofinalPage implements OnInit {
         }
         this.send = null;
     }
-
+    changeType(){
+        if (this.form.value.type === 'DELIVERY'){
+            this.changeValidator('address_order', true);
+            this.changeValidator('departament_id', true);
+        }else{
+            this.changeValidator('address_order', false);
+            this.changeValidator('departament_id', false);
+        }
+    }
     changePayCulqi(culqiId) {
         this.http.setModule('order/update');
         this.http.post({order_id: this.order.id, culqi_id: culqiId}).then((res: any) => {

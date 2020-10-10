@@ -1,11 +1,11 @@
 <ion-header class="ion-no-border">
     <ion-toolbar color="rojo">
         <ion-buttons slot="start" style="width: 48px;" class="text-center">
-               <div class="button-native " (click)="back()">
-                   <ion-icon
-                           name="arrow-back-outline"
-                           style="font-size: 24px;"></ion-icon>
-               </div>
+            <div class="button-native " (click)="back()">
+                <ion-icon
+                        name="arrow-back-outline"
+                        style="font-size: 24px;"></ion-icon>
+            </div>
         </ion-buttons>
         <ion-title class="color-white text-center">Tu pedido</ion-title>
         <ion-buttons slot="end" style="min-width: 48px;">
@@ -26,8 +26,13 @@
             <div class="col-md-7 detail background-white">
                 <div class="dta">
                    <span class="middle">
-                    <p class="color-gris">{{product.name}}</p>
-                    <div class="w-50 ion-float-left mt-2">
+                    <p class="color-gris mb-1">{{product.name}}</p>
+                      <ng-container *ngIf="product.color_id">
+                           <span class="color-gris">Color:</span>
+                       <span
+                               style="background: {{product.code}};width: 20px;height: 17px; display: block;"></span>
+                      </ng-container>
+                       <div class="w-50 ion-float-left mt-2">
                        <h5> S/.{{product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}</h5>
                     </div>
                     <div class="w-50 ion-float-left mt-2 ion-text-right">
@@ -50,7 +55,7 @@
         <div class="mt-2">
             <span class="many" routerLink="/tabs/subcategorias">Agregar más productos</span>
         </div>
-<!--        <img src="assets/img/tarjetas.png" class="tarjetas">-->
+        <!--        <img src="assets/img/tarjetas.png" class="tarjetas">-->
     </div>
     <ion-fab *ngIf="cartService.countCart()" vertical="bottom w-100" routerLink="/tabs/pedidofinal">
         <div class="background-yellow ml-2 mr-2">

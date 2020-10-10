@@ -1,0 +1,32 @@
+:host{
+  --ion-background-color: #F6F7FB !important;
+}
+.content {
+  .service {
+    width: 100%;
+    background: #F6F7FB;
+    padding-bottom: 10px;
+
+  }
+  table {
+    font-size: 10px;
+    text-align: center;
+
+    th, td {
+      padding: 2%;
+    }
+    td{
+      border-bottom: 1px solid #D2D3D5;
+    }
+    img {
+      width: 15px;
+    }
+
+    button {
+      font-size: 10px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      color: #fff;
+    }
+  }
+}

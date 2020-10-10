@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="rojo" class="ion-text-center">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Mis Pedidos</ion-title>
+
+        <ion-buttons slot="end" class="iconos" style="opacity: 0">
+            <img class="ml-2 w-50" src="assets/img/icon02.png" style="opacity: 0">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <div class="content w-100 h-100 pt-4">
+        <div class="service ">
+            <div class="col-md-12">
+                <table class="w-100 background-white" >
+                    <thead>
+                    <tr class="background-yellow">
+                        <th style="border-radius:10px 0 0 0px">
+                            &nbsp;
+                        </th>
+                        <th>FECHA - HORA</th>
+                        <th>TOTAL</th>
+                        <th style="border-radius:0 10px 0px 0;">DETALLE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td><img src="assets/img/check.png"></td>
+                        <td class="color-gris">{{order.created_at}}</td>
+                        <td class="color-gris">S/.{{order.total}}</td>
+                        <td>
+                            <button class="btn background-red" (click)="detail(order)" style="padding: 4px 10px;"
+                            >VER MÁS</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</ion-content>

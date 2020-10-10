@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-toolbar color="rojo" class="ion-text-center">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/my-orders"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Mis Pedidos</ion-title>
+
+        <ion-buttons slot="end" class="iconos" style="opacity: 0">
+            <img class="ml-2 w-50" src="assets/img/icon02.png" style="opacity: 0">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+    <div class="content pt-4">
+        <div class="service ">
+            <div class="row mb-2 mt-2">
+                <div class="col-md-12 background-yellow text-center"
+                     style="border-top-left-radius: 20px; border-top-right-radius: 20px">
+                    <div class="w-100 mt-2 mb-2">
+                        <h6 class="">DETALLE</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-12 background-white text-center">
+                    <div class="w-100 mt-2 mb-2">
+                        <h6 class="color-azul mb-1">DATOS DEL CLIENTE</h6>
+                        <div class="mb-1">
+                            <span class="color-azulino">NOMBRES: </span>
+                            <span class="color-gris">{{order.client.names}} </span>
+                        </div>
+                        <div class="mb-1">
+                            <span class="color-azulino">EMAIL: </span>
+                            <span class="color-gris">{{order.client.email}} </span>
+                        </div>
+                        <div class="mb-1">
+                            <span class="color-azulino">CELULAR: </span>
+                            <span class="color-gris">{{order.client.phone1}} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 background-white text-center">
+                    <div class="w-100 mt-2 mb-2">
+                        <h6 class="color-azul mb-1">DATOS DEL PEDIDO</h6>
+                        <div class="mb-1">
+                            <span class="color-azulino">TIPO DE ENTREGA: </span><br>
+                            <span class="color-gris">{{order.type}} </span>
+                        </div>
+                        <div class="mb-1" *ngIf="order.type == 'DELIVERY'">
+                            <span class="color-azulino">DIRECCIÓN DE ENTREGA: </span><br>
+                            <span class="color-gris">{{order.address}} </span>
+                        </div>
+                        <div class="mb-1" *ngIf="order.type == 'DELIVERY'">
+                            <span class="color-azulino">REFERENCIA: </span><br>
+                            <span class="color-gris">{{order.reference}} </span>
+                        </div>
+                        <div class="mb-1">
+                            <span class="color-azulino">FECHA Y HORA: </span><br>
+                            <span class="color-gris">{{order.created_at}}  </span>
+                        </div>
+                        <div class="mb-1">
+                            <span class="color-azulino">TIPO DE PAGO: </span><br>
+                            <span class="color-gris">{{order.type_pay}} </span>
+                        </div>
+                        <div class="mb-1">
+                            <span class="color-azulino">COMPROBANTE: </span><br>
+                            <span class="color-gris">{{order.type_voucher}} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-100 ml-0 mr-0" *ngFor="let detail of order.detail">
+                    <div class="col-md-4 background-white text-center prod">
+                        <div class="w-100 mt-2 mb-2">
+                            <div class="mb-1">
+                                <span class="color-azulino">PRODUCTO: </span><br>
+                                <span class="color-gris">{{detail.product.name}} </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2 background-white text-center prod ion-text-center">
+                        <div class="w-100 mt-2 mb-2">
+                            <div class="mb-1">
+                                <span class="color-azulino">COLOR: </span><br>
+                                <span class="color-gris">
+                  <div style="width: 12px; height: 12px; background: {{detail.color}}; display: inline-block;"></div>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 background-white text-center prod">
+                        <div class="w-100 mt-2 mb-2">
+                            <div class="mb-1">
+                                <span class="color-azulino">CANTIDAD: </span><br>
+                                <span class="color-gris">{{detail.qty}} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 background-white text-center prod">
+                        <div class="w-100 mt-2 mb-2">
+                            <div class="mb-1">
+                                <span class="color-azulino">PRECIO: </span><br>
+                                <span class="color-gris">{{detail.price}} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 background-white text-center"
+                     style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px">
+                    <div class="w-100 mt-3 mb-3">
+                        <h4 class="color-gris mb-1 cost" *ngIf="order.departament_price || order.zone_price">Delivery:
+                            S/. {{(order.departament_price + order.zone_price).toFixed(2) }}</h4>
+                        <h4 class="color-red mb-2 mt-1">Total: S/. {{order.total}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

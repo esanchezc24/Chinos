@@ -48,6 +48,14 @@ export class PrincipalPage implements OnInit {
         this.initialLoad();
     }
 
+    ionViewWillEnter() {
+        if (this.products.length || this.offers.length) {
+            this.loadingService.presentLoading();
+            this.getOffers();
+        }
+
+    }
+
     private initialLoad() {
         this.loadingService.presentLoading();
         this.http.setModule('sliders');

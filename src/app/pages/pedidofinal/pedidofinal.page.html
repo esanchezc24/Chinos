@@ -16,49 +16,66 @@
                 <span><img src="assets/img/icon07.png"></span>
                 <span class="color-azul ml-3">DATOS DE ENTREGA</span>
             </div>
-
             <div class="mt-3 mb-2">
-                <app-control-message [control]="form.get('departament_id')">
-                    <ion-item class="w-100 select" *ngIf="departaments.length > 0">
-                        <ion-label>Departamento</ion-label>
-                        <ion-select #departament   placeholder="Seleccionar Departamento"
-                                    (ionChange)="changeDepartament($event)"
+                <app-control-message [control]="form.get('type')">
+                    <ion-item class="w-100 select">
+                        <ion-label>Tipo de entrega</ion-label>
+                        <ion-select #departament placeholder="Tipo de entrega"
+                                    formControlName="type" (ionChange)="changeType()"
                                     okText="Aceptar" cancelText="Cancelar">
-                            <ion-select-option
-                                    *ngFor="let item of departaments"
-                                    [value]="item.id">
-                                {{item.name}}
-                            </ion-select-option>
+                            <ion-select-option value="DELIVERY">Delivery</ion-select-option>
+                            <ion-select-option value="RECOJO">Recojo en local</ion-select-option>
                         </ion-select>
 
                     </ion-item>
                 </app-control-message>
             </div>
-            <div class="mt-3 mb-2" *ngIf="form.value.departament_id === LIBERTAD">
-                <app-control-message [control]="form.get('zone_id')">
-                    <ion-item class="w-100 select" *ngIf="zones.length > 0">
-                        <ion-label>Zonas</ion-label>
-                        <ion-select #zone  placeholder="Seleccionar la Zona"
-                                    (ionChange)="changeZona($event)"
-                                    okText="Aceptar" cancelText="Cancelar">
-                            <ion-select-option
-                                    *ngFor="let zone of zones"
-                                    [value]="zone.id">
-                                {{zone.zone}}
-                            </ion-select-option>
-                        </ion-select>
-                    </ion-item>
+            <ng-container *ngIf="form.value.type == 'DELIVERY'">
+                <div class="mt-3 mb-2">
+                    <app-control-message [control]="form.get('departament_id')">
+                        <ion-item class="w-100 select" *ngIf="departaments.length > 0">
+                            <ion-label>Departamento</ion-label>
+                            <ion-select #departament placeholder="Seleccionar Departamento"
+                                        (ionChange)="changeDepartament($event)"
+                                        okText="Aceptar" cancelText="Cancelar">
+                                <ion-select-option
+                                        *ngFor="let item of departaments"
+                                        [value]="item.id">
+                                    {{item.name}}
+                                </ion-select-option>
+                            </ion-select>
 
-                </app-control-message>
-            </div>
-            <div class="mb-2">
-                <app-control-message [control]="form.get('address_order')">
-                    <input formControlName="address_order" type="text" placeholder="Dirección" class="w-100">
-                </app-control-message>
-            </div>
-            <div class="mb-2">
-                <textarea formControlName="reference" rows="3" placeholder="Referencia" class="w-100 mb-2"></textarea>
-            </div>
+                        </ion-item>
+                    </app-control-message>
+                </div>
+                <div class="mt-3 mb-2" *ngIf="form.value.departament_id === LIBERTAD">
+                    <app-control-message [control]="form.get('zone_id')">
+                        <ion-item class="w-100 select" *ngIf="zones.length > 0">
+                            <ion-label>Zonas</ion-label>
+                            <ion-select #zone placeholder="Seleccionar la Zona"
+                                        (ionChange)="changeZona($event)"
+                                        okText="Aceptar" cancelText="Cancelar">
+                                <ion-select-option
+                                        *ngFor="let zone of zones"
+                                        [value]="zone.id">
+                                    {{zone.zone}}
+                                </ion-select-option>
+                            </ion-select>
+                        </ion-item>
+
+                    </app-control-message>
+                </div>
+                <div class="mb-2">
+                    <app-control-message [control]="form.get('address_order')">
+                        <input formControlName="address_order" type="text" placeholder="Dirección" class="w-100">
+                    </app-control-message>
+                </div>
+                <div class="mb-2">
+                    <textarea formControlName="reference" rows="3" placeholder="Referencia"
+                              class="w-100 mb-2"></textarea>
+                </div>
+
+            </ng-container>
 
             <div class="title">
                 <span><img src="assets/img/icon04.png" class="w-20"></span>
@@ -81,18 +98,25 @@
                 </ion-list>
                 <div *ngIf="form.value.type_voucher == 'BOLETA'; else factura" class="mt-5">
                     <input [value]="client.names" type="text" placeholder="Datos" class="w-100 mb-2" disabled>
-                    <app-control-message [control]="form.get('dni')">
-                        <input [value]="client.dni" formControlName="dni" type="text" placeholder="DNI" class="w-100 mb-2">
-                    </app-control-message>
-                    <app-control-message [control]="form.get('address')">
-                        <input formControlName="address" [value]="client.address" type="text" placeholder="Dirección" class="w-100 mb-2">
-                    </app-control-message>
+                    <div class="mb-2">
+                        <app-control-message [control]="form.get('dni')">
+                            <input [value]="client.dni" formControlName="dni" type="text" placeholder="DNI"
+                                   class="w-100">
+                        </app-control-message>
+                    </div>
+                    <div class="mb-2">
+                        <app-control-message [control]="form.get('address')">
+                            <input formControlName="address" [value]="client.address" type="text"
+                                   placeholder="Dirección" class="w-100">
+                        </app-control-message>
+                    </div>
                 </div>
                 <ng-template #factura>
                     <div class="mt-5" #tarjeta>
                         <div class="mb-2">
                             <app-control-message [control]="form.get('business_name')">
-                                <input formControlName="business_name" type="text" placeholder="Razón Social" class="w-100 ">
+                                <input formControlName="business_name" type="text" placeholder="Razón Social"
+                                       class="w-100 ">
                             </app-control-message>
                         </div>
                         <div class="mb-2">
@@ -103,7 +127,8 @@
                         </div>
                         <div class="mb-2">
                             <app-control-message [control]="form.get('business_address')">
-                                <input formControlName="business_address" type="text" placeholder="Dirección" class="w-100">
+                                <input formControlName="business_address" type="text" placeholder="Dirección"
+                                       class="w-100">
                             </app-control-message>
                         </div>
                     </div>
@@ -136,11 +161,11 @@
             </div>
 
             <ng-template #tarjeta>
-                <div class="mt-5" #tarjeta>
+                <div class="mt-5 mb-2" #tarjeta>
                     <app-control-message [control]="form.get('email')">
                         <input data-culqi="card[email]" id="card[email]"
                                [value]="client.email"
-                               type="text" placeholder="Correo Electronico" class="w-100 mb-2">
+                               type="text" placeholder="Correo Electronico" class="w-100">
                     </app-control-message>
                 </div>
                 <div [formGroup]="formCulqi">
@@ -176,7 +201,8 @@
         </div>
         <div class="w-100 ion-text-right monto mt-3">
             <p class="color-gris">Subtotal: s/. {{subtotal.toFixed(2)}}</p>
-            <p class="color-gris">Envio: s/. {{send ? send.price.toFixed(2) : '0.00'}}</p>
+            <p class="color-gris" *ngIf="form.value.type == 'DELIVERY'">Envio:
+                s/. {{send ? send.price.toFixed(2) : '0.00'}}</p>
             <h5 class="color-red">Total: s/. {{total.toFixed(2)}}</h5>
         </div>
 

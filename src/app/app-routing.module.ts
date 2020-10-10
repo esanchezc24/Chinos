@@ -19,6 +19,15 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'orders',
+    loadChildren: () => import('./pages/my-orders/orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
+    path: 'order-detail',
+    loadChildren: () => import('./pages/my-orders/detail/detail.module').then( m => m.DetailPageModule)
+  },
+
 
 
 

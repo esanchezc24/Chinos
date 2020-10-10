@@ -39,7 +39,7 @@ export class ControlMessageComponent implements OnInit {
   private getMessage( errorName: string, errorValue: any ) {
     switch ( errorName ) {
       case 'required':
-        return 'Campo requerido';
+        return 'Obligatorio';
       case 'email':
         return 'El correo no es válido';
       case 'pattern':
