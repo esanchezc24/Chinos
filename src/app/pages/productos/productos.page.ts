@@ -28,10 +28,11 @@ export class ProductosPage implements OnInit {
 
     ionViewWillEnter() {
         this.name = this.paramsService.getParams().name;
-        this.initialLoad(true);
+
     }
 
     ngOnInit() {
+        this.initialLoad(true);
     }
 
     private initialLoad(clear) {
@@ -49,7 +50,7 @@ export class ProductosPage implements OnInit {
         this.filters.offer = this.name === 'OFERTAS' ? 'SI' : 'NO';
         this.http.get(this.filters).then((res: any) => {
             this.total = res.total;
-            res.data.forEach((product, i) => {
+            res.data.forEach((product) => {
                 product.qty = 1;
                 this.products.push(product);
             });
@@ -65,10 +66,12 @@ export class ProductosPage implements OnInit {
     }
 
     loadData(event) {
+        console.log("load", this.products.length);
         if (this.products.length === this.total) {
             event.target.complete();
             this.infiniteScroll.disabled = true;
-        } else {
+        } else if (this.products.length) {
+        // } else  {
             this.filters.limit += 20;
             this.initialLoad(false);
         }
