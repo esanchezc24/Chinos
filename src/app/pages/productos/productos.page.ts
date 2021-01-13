@@ -66,7 +66,6 @@ export class ProductosPage implements OnInit {
     }
 
     loadData(event) {
-        console.log("load", this.products.length);
         if (this.products.length === this.total) {
             event.target.complete();
             this.infiniteScroll.disabled = true;

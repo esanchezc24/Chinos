@@ -76,7 +76,11 @@
                 </div>
 
             </ng-container>
-
+            <div class="mb-2">
+                <app-control-message [control]="form.get('phone')">
+                    <input formControlName="phone" type="number" placeholder="Celular" class="w-100">
+                </app-control-message>
+            </div>
             <div class="title">
                 <span><img src="assets/img/icon04.png" class="w-20"></span>
                 <span class="color-azul ml-3">COMPROBANTE DE PAGO</span>

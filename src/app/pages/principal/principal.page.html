@@ -12,7 +12,7 @@
         <div class="ion-padding">
             <ion-slides pager="true" [options]="sliderOpt">
                 <ion-slide *ngFor="let slider of sliders">
-                    <img-loader [src]="environment.apiUrl+'/'+slider.imagen"   [useImg]="true"></img-loader>
+                    <img-loader [src]="environment.apiUrl+'/'+slider.imagen" [useImg]="true"></img-loader>
                 </ion-slide>
 
             </ion-slides>
@@ -22,7 +22,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mb-2">
                 <span class="color-azul title">
                     <i class="fa fa-check-circle"></i>
                     Ofertas
@@ -31,13 +31,13 @@
 
             </div>
             <div class="w-100 ofert row">
-                <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;"  class="w-100">
-                    <ion-slide *ngFor="let offer of offers"  >
+                <ion-slides [options]="slideOptsOne" style=" margin: 0 15px;" class="w-100">
+                    <ion-slide *ngFor="let offer of offers">
                         <div class="background-white text-center" *ngIf="offer.id" (click)="goDetail(offer)">
                             <div>
-                                <img-loader [src]="environment.apiUrl+'/'+offer.imagen"   [useImg]="true"></img-loader>
-<!--                                <img-loader src="http://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-buzz.png"-->
-<!--                                            [useImg]="true"></img-loader>-->
+                                <img-loader [src]="environment.apiUrl+'/'+offer.imagen" [useImg]="true"></img-loader>
+                                <!--                                <img-loader src="http://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-buzz.png"-->
+                                <!--                                            [useImg]="true"></img-loader>-->
                             </div>
                             <div class="desc">
                                 <button class="background-yellow">
@@ -59,32 +59,34 @@
 
         </div>
         <div class="row mt-3">
-            <div class="col-md-12">
+            <div class="col-md-12 mb-2">
                 <span class="color-azul title">
                     <i class="fa fa-check-circle"></i>
                     Todos los productos
                 </span>
-                <span class="color-gris ion-float-right title" (click)="goProducts('PRODUCTOS')">Ver más</span>
 
             </div>
-            <div class="w-100 prod row mb-3">
-                <ion-slides [options]="sliderProduct" style=" margin: 0 15px;" class="w-100">
-                    <ion-slide *ngFor="let product of products">
-                        <div class="background-white text-center" *ngIf="product.id" (click)="goDetail(product)">
-                            <div>
-                                <img [src]="environment.apiUrl+'/'+product.imagen" alt="">
-                            </div>
-                            <div class="desc">
-                                <button class="background-yellow">
-                                    S/. {{product.price.toFixed(2)}}
-                                </button>
-                                <p class="color-gris">{{product.name}}</p>
-                            </div>
+            <div class="w-100 prod row mb-3 ion-padding">
+                <div class="col-md-6" *ngFor="let product of products">
+                    <div class="background-white text-center">
+                        <div class="" (click)="goDetail(product)">
+                            <img-loader [src]="environment.apiUrl+'/'+product.imagen" [useImg]="true"></img-loader>
                         </div>
-                    </ion-slide>
+                        <div class="content text-center">
 
-
-                </ion-slides>
+                            <div class="buttons">
+                                <button class="btn background-yellow w-100 btn-add" (click)="goDetail(product)">
+                                    S/.  {{ product.offer == 'SI' ? product.offer_price.toFixed(2) : product.price.toFixed(2)}}
+                                </button>
+                            </div>
+                            <p>   {{product.name.length > 17 ? (product.name | slice:0:17) + '...' : product.name}}</p>
+                        </div>
+                    </div>
+                </div>
+                <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+                    <ion-infinite-scroll-content>
+                    </ion-infinite-scroll-content>
+                </ion-infinite-scroll>
             </div>
         </div>
 

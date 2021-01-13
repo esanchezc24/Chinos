@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {FactoryService} from "../../../services/factory.service";
-import {AlertController, LoadingController} from "@ionic/angular";
 import {ParamsService} from "../../../services/params.service";
 import {Router} from "@angular/router";
 import {LoadingService} from "../../../services/loading.service";
@@ -32,7 +31,7 @@ export class OrdersPage implements OnInit {
     this.loading.presentLoading();
     this.afAuth.authState.subscribe(res => {
       this.authState = res;
-      const userID = environment.production ? res.uid : 'JE6zUXXprRhynhafxKn2M9XiLf73';
+      const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
       this.getOrders(userID);
     });
   }

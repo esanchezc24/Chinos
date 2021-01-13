@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="6" id="app.chinoimportaciones.com" version="0.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="8" id="app.chinoimportaciones.com" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>El Chino</name>
     <description>El Chino</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Pyrus Studio</author>

@@ -93,6 +93,7 @@ export class PedidofinalPage implements OnInit {
             zone_id: [null],
             client_id: [this.client.id],
             type: [null,  [Validators.required]],
+            phone: [null,  [Validators.required]],
         });
         this.formCulqi = this.fb.group({
             card: [!environment.production ? '4111111111111111' : null],

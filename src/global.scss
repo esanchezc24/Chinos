@@ -27,43 +27,51 @@
 @import "assets/scss/color";
 @import "assets/scss/col";
 
-div, input, img, button, span{
+div, input, img, button, span {
   outline: 0;
+
   &:focus {
     box-shadow: none;
-    outline:0;
-    -webkit-box-shadow:none;
+    outline: 0;
+    -webkit-box-shadow: none;
   }
 }
 
-.slider-principal{
-  ion-slides{
+.slider-principal {
+  ion-slides {
     position: inherit !important;
-    .swiper-pagination-bullet{
-      background: #96989A ;
+
+    .swiper-pagination-bullet {
+      background: #96989A;
     }
-    .swiper-pagination-bullet-active{
+
+    .swiper-pagination-bullet-active {
       background: #ec3239;
     }
-    .swiper-pagination{
+
+    .swiper-pagination {
       bottom: -7px !important;
     }
   }
 
 }
+
 .mitad {
   width: 48%;
 }
 
 .cuarta {
   width: 31%;
-  input{
+
+  input {
     padding: 5% 15% !important;
   }
 }
-.two-column{
+
+.two-column {
   display: flow-root;
 }
+
 ion-radio-group {
   ion-item {
     --border-color: transparent;
@@ -78,16 +86,20 @@ ion-radio-group {
     font-size: 12px;
   }
 }
-.hidden{
+
+.hidden {
   display: none;
 }
+
 ion-alert {
   text-align: center;
-  .alert-wrapper.sc-ion-alert-md{
+
+  .alert-wrapper.sc-ion-alert-md {
     border-radius: 20px;
     width: 100%;
     max-width: 80%;
   }
+
   .alert-head.sc-ion-alert-md {
     text-align: center;
   }
@@ -99,25 +111,29 @@ ion-alert {
   .alert-message.sc-ion-alert-md {
     font-size: 14px;
     padding: 0 5% 5% !important;
-    img{
+
+    img {
       width: 40px;
     }
   }
-  .alert-button-group.sc-ion-alert-md{
+
+  .alert-button-group.sc-ion-alert-md {
     justify-content: center;
   }
 
   &.detalle {
     .alert-button.sc-ion-alert-md {
       width: 100%;
+
       .alert-button-inner.sc-ion-alert-md {
         justify-content: center;
       }
     }
   }
 }
-ion-loading{
-  .loading-wrapper.sc-ion-loading-md{
+
+ion-loading {
+  .loading-wrapper.sc-ion-loading-md {
     background: #fff;
     color: #2F73B8;
     border-radius: 15px;
