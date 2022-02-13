@@ -27,11 +27,14 @@ const routes: Routes = [
     path: 'order-detail',
     loadChildren: () => import('./pages/my-orders/detail/detail.module').then( m => m.DetailPageModule)
   },
-
-
-
-
-
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
 
 ];
 @NgModule({

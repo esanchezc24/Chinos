@@ -4,6 +4,7 @@ import {NavController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {AngularFireAuth} from "@angular/fire/auth";
+import { AuthService } from 'src/app/services/auth.service';
 import {environment} from "../environments/environment";
 
 @Component({
@@ -17,12 +18,23 @@ export class AppComponent {
       private splashScreen: SplashScreen,
       private statusBar: StatusBar,
       private afAuth: AngularFireAuth,
-      public navCtrl: NavController
+      public navCtrl: NavController,
+      private authService: AuthService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    this.authService.getUserAuth().subscribe( result => {
+      console.log(result);
+      if (!result) {
+        this.navCtrl.navigateRoot('/inicio');
+      } else {
+        this.navCtrl.navigateRoot('/tabs');
+      }
+
+    });
+    /*
     if (!environment.production){
       this.navCtrl.navigateRoot('/tabs');
     }else{
@@ -34,6 +46,8 @@ export class AppComponent {
         }
       });
     }
+    */
+    this.navCtrl.navigateRoot('/inicio');
 
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(false);

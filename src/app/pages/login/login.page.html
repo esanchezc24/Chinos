@@ -1,0 +1,35 @@
+<ion-content style="--background: #fffff;">
+  <img src="/assets/img/iconapp.png" />
+  <div class="footer-bar" >
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="columnna" style="padding-bottom: 15px;">
+          <img src="/assets/img/user_2.png" style="height: 20px;margin-right: 10px;"/>Inicio de Sesión
+        </ion-col>
+        <ion-col size="12" style="padding-right: 20px;padding-left: 20px; padding-bottom: 3px;">
+          <ion-input type="email" style="text-align: center;" placeholder="E-mail" class="dise-input" [(ngModel)]="usuario.email"></ion-input>
+        </ion-col>
+        <ion-col size="12" style="padding-right: 20px;padding-left: 20px; padding-top: 3px;">
+          <ion-input type="password" style="text-align: center;" placeholder="Contraseña" class="dise-input" [(ngModel)]="usuario.password"></ion-input>
+        </ion-col>
+        <ion-col size="12" class="columnna">
+          <button class="boton-carrito" style="text-align: left; background: #EB1B23;" (click)="login(usuario)">
+            <ion-row>
+              <ion-col size="12" style=" justify-content: center; align-items: center; display: flex;">
+                <ion-col size="3" style="text-align: center;">
+                  <img src="/assets/img/user_3.png" style="height: 20px; float: right;"/>
+                </ion-col>
+                <ion-col size="6">
+                  <label style="color: #ffffff; font-size:15px;">Iniciar Sesión</label>
+                </ion-col>
+              </ion-col>
+            </ion-row>
+          </button>
+        </ion-col>
+        <ion-col size="12" class="columnna">
+          <a href="tel:+51936841792" style="color: #034CA0; font-size: 14px;">Recuperar Contraseña</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

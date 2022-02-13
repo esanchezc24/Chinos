@@ -45,7 +45,8 @@ export class PedidofinalPage implements OnInit {
     ionViewWillEnter() {
         this.loading.presentLoading();
         this.afAuth.authState.subscribe(res => {
-            const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
+            //const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
+            const userID = res.uid;
             this.http.setModule('clients');
             this.http.get({userID}).then((response: any) => {
                 this.client = response.data;

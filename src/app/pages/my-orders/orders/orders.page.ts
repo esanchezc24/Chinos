@@ -31,7 +31,8 @@ export class OrdersPage implements OnInit {
     this.loading.presentLoading();
     this.afAuth.authState.subscribe(res => {
       this.authState = res;
-      const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
+      //const userID = environment.production ? res.uid : 'd2GyxaOYgKMougvn6TZLXVCrYTr2';
+      const userID = res.uid;
       this.getOrders(userID);
     });
   }

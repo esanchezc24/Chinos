@@ -27,7 +27,8 @@ export class PerfilPage implements OnInit {
     this.loading.presentLoading();
     this.afAuth.authState.subscribe(res => {
       this.authState = res;
-      const userID = environment.production ? res.uid : 'MlrifWvUVnTps7GNvxoNjV48gbF2';
+      //const userID = environment.production ? res.uid : 'MlrifWvUVnTps7GNvxoNjV48gbF2';
+      const userID = res.uid;
       this.getPhoto();
       this.http.setModule('clients');
       this.http.get({userID}).then((response: any) => {
@@ -39,8 +40,10 @@ export class PerfilPage implements OnInit {
     });
   }
   getPhoto() {
+    /*
     this.photo = this.authState ? this.authState.photoURL + '?type=large&redirect=true' :
-        'https://graph.facebook.com/3107407929349183/picture?type=large&redirect=true';
+        'https://graph.facebook.com/3107407929349183/picture?type=large&redirect=true';*/
+    this.photo = '/assets/img/perfil.png'
   }
 
   save() {
